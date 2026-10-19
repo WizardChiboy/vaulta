@@ -1,0 +1,6 @@
+assets/vaulta-ui
+.expo
+dist
+android
+ios
+yarn.lock

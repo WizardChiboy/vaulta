@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vaulta — Card controls</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+body{margin:0}
+*{box-sizing:border-box}
+h1,h2,h3,p{margin:0}
+a{color:#0E7F57;text-decoration:none}a:hover{color:#0B6646}
+button,input{font-family:inherit}
+.v{width:393px;height:852px;background:#F5F7FA;font-family:'Inter',system-ui,sans-serif;color:#101828;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.sb{height:50px;flex-shrink:0;padding:16px 26px 0 34px;display:flex;justify-content:space-between;font-size:15px;font-weight:600}
+.hb{position:absolute;bottom:8px;left:129px;width:134px;height:5px;border-radius:3px;background:#101828}
+.hd{height:56px;flex-shrink:0;display:flex;align-items:center;gap:12px;padding:0 20px}
+.ib{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#FFFFFF;border:1px solid #E4E7EC;color:#101828;cursor:pointer;padding:0}
+.card{background:#FFFFFF;border:1px solid #E4E7EC;border-radius:16px}
+.mut{color:#667085}
+.tr{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #F2F4F7}
+.tr:last-child{border-bottom:0}
+.ic{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#F2F4F7;color:#344054}
+.tt{display:block;font-size:15px;font-weight:500}
+.ts{display:block;font-size:12px;color:#667085;margin-top:2px}
+.sw{width:48px;height:28px;border-radius:14px;border:0;position:relative;padding:0;cursor:pointer;flex-shrink:0;margin-left:auto;transition:background .15s}
+.sw span{position:absolute;top:3px;width:22px;height:22px;border-radius:11px;background:#FFFFFF;box-shadow:0 1px 2px rgba(16,24,40,0.25);transition:left .15s}
+svg.i{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+</style>
+
+<style>
+html{background:#E4E7EC}
+body{margin:0;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:32px 16px;box-sizing:border-box;background:#E4E7EC}
+body>.v{border-radius:44px;box-shadow:0 0 0 10px #101828,0 30px 60px rgba(16,24,40,.25)}
+.back-to-index{position:fixed;top:12px;left:12px;font:600 13px Inter,system-ui,sans-serif;background:#fff;color:#101828;border:1px solid #D0D5DD;border-radius:999px;padding:8px 14px;text-decoration:none}
+@media (max-width:440px){body{padding:0;background:#F5F7FA}body>.v{border-radius:0;box-shadow:none}.back-to-index{display:none}}
+</style>
+</head>
+<body>
+<a class="back-to-index" href="../index.html">← All screens</a>
+<main class="v">
+<div aria-hidden="true" class="sb"><span>9:41</span><span style="display: flex; gap: 6px; align-items: center"><svg fill="#101828" height="12" viewbox="0 0 18 12" width="18"><rect height="4" rx="1" width="3" x="0" y="8"></rect><rect height="6.5" rx="1" width="3" x="5" y="5.5"></rect><rect height="9" rx="1" width="3" x="10" y="3"></rect><rect height="12" rx="1" width="3" x="15" y="0"></rect></svg><svg fill="none" height="12" stroke="#101828" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 16 12" width="16"><path d="M1.5 4.5a9.5 9.5 0 0 1 13 0M4 7.3a6 6 0 0 1 8 0"></path><circle cx="8" cy="10" fill="#101828" r="1"></circle></svg><svg fill="none" height="12" viewbox="0 0 26 12" width="26"><rect height="11" opacity=".4" rx="3" stroke="#101828" width="22" x=".5" y=".5"></rect><rect fill="#101828" height="8" rx="1.8" width="17" x="2" y="2"></rect><path d="M24 4v4" opacity=".5" stroke="#101828" stroke-linecap="round" stroke-width="1.5"></path></svg></span></div>
+<div class="hd"><a aria-label="Back" class="ib" href="24-card-details.html"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M15 5l-7 7 7 7"></path></svg></a></div>
+<h1 style="padding: 4px 20px 0; font-size: 28px; font-weight: 700; letter-spacing: -0.03em">Card controls</h1>
+<div class="card" style="margin: 14px 20px 0; padding: 12px 14px; display: flex; align-items: center; gap: 12px">
+<span style="width: 56px; height: 38px; border-radius: 7px; background: #101828; display: flex; align-items: flex-end; justify-content: flex-end; padding: 4px 6px; font-size: 9px; font-weight: 700; color: #16A875">v.</span>
+<span style="flex: 1"><span style="display: block; font-size: 15px; font-weight: 600">Virtual debit •••• 7302</span><span style="display: block; font-size: 13px; margin-top: 2px; color: #067647; font-weight: 500">Active · all good</span></span>
+</div>
+<h2 class="mut" style="margin: 18px 20px 8px; font-size: 13px; font-weight: 600">Security</h2>
+<div class="card" style="margin: 0 20px">
+
+<div class="tr">
+<span class="ic" style="background: #F2F4F7; color: #344054"><svg class="i" height="18" viewbox="0 0 24 24" width="18"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9"></path></svg></span>
+<span><span class="tt" id="tg-freeze">Freeze card</span><span class="ts">Temporarily block all payments</span></span>
+<button aria-checked="false" aria-labelledby="tg-freeze" class="sw" role="switch" style="background: #D0D5DD"><span style="left: 3px"></span></button>
+</div>
+
+<div class="tr">
+<span class="ic" style="background: #F2F4F7; color: #344054"><svg class="i" height="18" viewbox="0 0 24 24" width="18"><path d="M3 12h18M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"></path></svg></span>
+<span><span class="tt" id="tg-online">Online payments</span><span class="ts">Web and in-app purchases</span></span>
+<button aria-checked="true" aria-labelledby="tg-online" class="sw" role="switch" style="background: #16A875"><span style="left: 23px"></span></button>
+</div>
+
+<div class="tr">
+<span class="ic" style="background: #F2F4F7; color: #344054"><svg class="i" height="18" viewbox="0 0 24 24" width="18"><path d="M5 19 19 5M9 5h10v10"></path></svg></span>
+<span><span class="tt" id="tg-intl">International payments</span><span class="ts">Merchants outside Nigeria</span></span>
+<button aria-checked="false" aria-labelledby="tg-intl" class="sw" role="switch" style="background: #D0D5DD"><span style="left: 3px"></span></button>
+</div>
+
+<div class="tr">
+<span class="ic" style="background: #F2F4F7; color: #344054"><svg class="i" height="18" viewbox="0 0 24 24" width="18"><path d="M6 16v-5a6 6 0 1 1 12 0v5l2 2H4zM10 21h4"></path></svg></span>
+<span><span class="tt" id="tg-notif">Card notifications</span><span class="ts">Alert me for every payment</span></span>
+<button aria-checked="true" aria-labelledby="tg-notif" class="sw" role="switch" style="background: #16A875"><span style="left: 23px"></span></button>
+</div>
+
+</div>
+<h2 class="mut" style="margin: 18px 20px 8px; font-size: 13px; font-weight: 600">Spending limits</h2>
+<div class="card" style="margin: 0 20px; padding: 14px 16px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 15px; font-weight: 500">Monthly limit</span><span style="font-size: 15px; font-weight: 700">₦300,000</span></div>
+<div style="position: relative; height: 24px; margin-top: 10px">
+<span style="position: absolute; left: 0; right: 0; top: 10px; height: 4px; border-radius: 2px; background: #E4E7EC"></span>
+<span style="position: absolute; left: 0; width: 60%; top: 10px; height: 4px; border-radius: 2px; background: #16A875"></span>
+<button aria-label="Monthly limit ₦300,000" style="position: absolute; left: calc(60% - 12px); top: 0; width: 24px; height: 24px; border-radius: 12px; background: #FFFFFF; border: 2px solid #16A875; box-shadow: 0 1px 3px rgba(16,24,40,0.15); padding: 0"></button>
+</div>
+<p class="mut" style="font-size: 12px; margin-top: 6px">₦212,840 used · resets 1 Nov</p>
+<div style="height: 1px; background: #F2F4F7; margin: 12px 0"></div>
+<div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; font-weight: 500">Per transaction</span><span style="display: flex; align-items: center; gap: 8px"><span style="font-size: 15px; font-weight: 600">₦100,000</span><button style="border: 0; background: transparent; color: #0E7F57; font-size: 14px; font-weight: 600; padding: 6px 0">Edit</button></span></div>
+</div>
+<a class="card" href="#" style="margin: 14px 20px 0; padding: 12px 16px; display: flex; align-items: center; gap: 12px; color: #101828">
+<span class="ic" style="background: #FEF3F2; color: #B42318"><svg class="i" height="18" viewbox="0 0 24 24" width="18"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 5v6h-6"></path></svg></span>
+<span style="flex: 1"><span class="tt">Replace card</span><span class="ts">Lost, stolen or damaged</span></span>
+<svg class="i" height="18" style="color: #98A2B3" viewbox="0 0 24 24" width="18"><path d="M9 5l7 7-7 7"></path></svg>
+</a>
+<div class="hb"></div>
+</main>
+</body>
+</html>

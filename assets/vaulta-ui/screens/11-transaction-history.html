@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vaulta — Transactions</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+body{margin:0}
+*{box-sizing:border-box}
+h1,h2,h3,p{margin:0}
+a{color:#0E7F57;text-decoration:none}a:hover{color:#0B6646}
+button,input{font-family:inherit}
+.v{width:393px;height:852px;background:#F5F7FA;font-family:'Inter',system-ui,sans-serif;color:#101828;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.sb{height:50px;flex-shrink:0;padding:16px 26px 0 34px;display:flex;justify-content:space-between;font-size:15px;font-weight:600}
+.hb{position:absolute;bottom:8px;left:129px;width:134px;height:5px;border-radius:3px;background:#101828}
+.hd{height:56px;flex-shrink:0;display:flex;align-items:center;gap:8px;padding:0 20px}
+.ib{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#FFFFFF;border:1px solid #E4E7EC;color:#101828;cursor:pointer;padding:0}
+.card{background:#FFFFFF;border:1px solid #E4E7EC;border-radius:16px}
+.mut{color:#667085}
+.chip{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 14px;border-radius:999px;font-size:14px;font-weight:500;border:1px solid #E4E7EC;background:#FFFFFF;color:#344054;cursor:pointer;white-space:nowrap}
+.chip.on{background:#EAF8F1;border-color:#16A875;color:#0E7F57;font-weight:600}
+.sh{font-size:13px;font-weight:600;color:#667085;margin:14px 20px 8px;display:flex;justify-content:space-between}
+.tx{display:flex;align-items:center;gap:12px;padding:9px 16px;color:#101828}
+.tx:hover{color:#101828;background:#F9FAFB}
+.ic{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#F2F4F7;color:#344054}
+.nm{display:block;font-size:15px;font-weight:500}
+.sub{display:block;font-size:13px;color:#667085;margin-top:2px}
+.amt{margin-left:auto;font-size:15px;font-weight:600;font-variant-numeric:tabular-nums;text-align:right}
+.sk{background:#EAECF0;border-radius:6px}
+svg.i{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+</style>
+
+<style>
+html{background:#E4E7EC}
+body{margin:0;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:32px 16px;box-sizing:border-box;background:#E4E7EC}
+body>.v{border-radius:44px;box-shadow:0 0 0 10px #101828,0 30px 60px rgba(16,24,40,.25)}
+.back-to-index{position:fixed;top:12px;left:12px;font:600 13px Inter,system-ui,sans-serif;background:#fff;color:#101828;border:1px solid #D0D5DD;border-radius:999px;padding:8px 14px;text-decoration:none}
+@media (max-width:440px){body{padding:0;background:#F5F7FA}body>.v{border-radius:0;box-shadow:none}.back-to-index{display:none}}
+</style>
+</head>
+<body>
+<a class="back-to-index" href="../index.html">← All screens</a>
+<main class="v">
+<div aria-hidden="true" class="sb"><span>9:41</span><span style="display: flex; gap: 6px; align-items: center"><svg fill="#101828" height="12" viewbox="0 0 18 12" width="18"><rect height="4" rx="1" width="3" x="0" y="8"></rect><rect height="6.5" rx="1" width="3" x="5" y="5.5"></rect><rect height="9" rx="1" width="3" x="10" y="3"></rect><rect height="12" rx="1" width="3" x="15" y="0"></rect></svg><svg fill="none" height="12" stroke="#101828" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 16 12" width="16"><path d="M1.5 4.5a9.5 9.5 0 0 1 13 0M4 7.3a6 6 0 0 1 8 0"></path><circle cx="8" cy="10" fill="#101828" r="1"></circle></svg><svg fill="none" height="12" viewbox="0 0 26 12" width="26"><rect height="11" opacity=".4" rx="3" stroke="#101828" width="22" x=".5" y=".5"></rect><rect fill="#101828" height="8" rx="1.8" width="17" x="2" y="2"></rect><path d="M24 4v4" opacity=".5" stroke="#101828" stroke-linecap="round" stroke-width="1.5"></path></svg></span></div>
+<div class="hd">
+<a aria-label="Back" class="ib" href="08-home-dashboard.html"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M15 5l-7 7 7 7"></path></svg></a>
+<span style="flex: 1"></span>
+<a aria-label="Search transactions" class="ib" href="13-search-transactions.html"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
+<a aria-label="Filter transactions" class="ib" href="14-filter-transactions.html" style="position: relative"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M4 6h16M7 12h10M10 18h4"></path></svg></a>
+</div>
+<h1 style="padding: 4px 20px 0; font-size: 28px; font-weight: 700; letter-spacing: -0.03em">Transactions</h1>
+<div style="margin-top: 14px; padding: 0 20px; display: flex; gap: 8px; overflow: hidden">
+<button aria-pressed="true" class="chip on">All</button>
+<button class="chip">Money in</button>
+<button class="chip">Money out</button>
+<button class="chip">Pending</button>
+</div>
+<div class="card" style="margin: 14px 20px 0; padding: 12px 16px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr))">
+<div><p class="mut" style="font-size: 12px">In · October</p><p style="font-size: 16px; font-weight: 700; color: #0E7F57; margin-top: 2px">+₦935,000</p></div>
+<div style="border-left: 1px solid #F2F4F7; padding-left: 16px"><p class="mut" style="font-size: 12px">Out · October</p><p style="font-size: 16px; font-weight: 700; margin-top: 2px">−₦486,250</p></div>
+</div>
+<h2 class="sh"><span>Today</span><span>Sun, 18 Oct</span></h2>
+<div class="card" style="margin: 0 20px; padding: 3px 0">
+<a class="tx" href="12-transaction-details.html"><span class="ic"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M3 4h2l2.4 11h11L21 8H6.3"></path><circle cx="9" cy="20" r="1.4"></circle><circle cx="17" cy="20" r="1.4"></circle></svg></span><span><span class="nm">Shoprite Lekki</span><span class="sub">Groceries · 10:24</span></span><span class="amt">−₦18,450.00</span></a>
+<a class="tx" href="12-transaction-details.html"><span class="ic" style="background: #EAF8F1; color: #0E7F57"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M17 7 7 17M16 17H7V8"></path></svg></span><span><span class="nm">Tunde Bakare</span><span class="sub">Transfer in · 08:02</span></span><span class="amt" style="color: #0E7F57">+₦45,000.00</span></a>
+</div>
+<h2 class="sh"><span>Yesterday</span><span>Sat, 17 Oct</span></h2>
+<div class="card" style="margin: 0 20px; padding: 3px 0">
+<a class="tx" href="12-transaction-details.html"><span class="ic"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M5 16h14v-4l-2-5H7l-2 5zM5 16v3M19 16v3M8 13h.01M16 13h.01"></path></svg></span><span><span class="nm">Bolt Ride</span><span class="sub">Transport · 21:40</span></span><span class="amt">−₦3,200.00</span></a>
+<a class="tx" href="12-transaction-details.html"><span class="ic"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M17 3c-2 0-3 2-3 5s1 4 3 4v9"></path></svg></span><span><span class="nm">Chicken Republic</span><span class="sub">Food &amp; dining · 13:15</span></span><span class="amt">−₦6,750.00</span></a>
+</div>
+<h2 class="sh"><span>Thursday</span><span>15 Oct</span></h2>
+<div class="card" style="margin: 0 20px; padding: 3px 0">
+<a class="tx" href="12-transaction-details.html"><span class="ic" style="background: #EAF8F1; color: #0E7F57"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M17 7 7 17M16 17H7V8"></path></svg></span><span><span class="nm">Brightline Studios</span><span class="sub">Salary · 09:00</span></span><span class="amt" style="color: #0E7F57">+₦850,000.00</span></a>
+<div aria-label="Loading earlier transactions" class="tx" role="status"><span class="ic sk"></span><span style="flex: 1"><span class="sk" style="display: block; width: 60%; height: 12px"></span><span class="sk" style="display: block; width: 38%; height: 10px; margin-top: 8px"></span></span><span class="sk" style="width: 64px; height: 12px"></span></div>
+</div>
+<div class="hb"></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vaulta — Accounts</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+body{margin:0}
+*{box-sizing:border-box}
+h1,h2,h3,p{margin:0}
+a{color:#0E7F57;text-decoration:none}a:hover{color:#0B6646}
+button,input{font-family:inherit}
+.v{width:393px;height:852px;background:#F5F7FA;font-family:'Inter',system-ui,sans-serif;color:#101828;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.sb{height:50px;flex-shrink:0;padding:16px 26px 0 34px;display:flex;justify-content:space-between;font-size:15px;font-weight:600}
+.hb{position:absolute;bottom:8px;left:129px;width:134px;height:5px;border-radius:3px;background:#101828}
+.hd{height:56px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 20px}
+.ib{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#FFFFFF;border:1px solid #E4E7EC;color:#101828;cursor:pointer;padding:0}
+.card{background:#FFFFFF;border:1px solid #E4E7EC;border-radius:16px}
+.mut{color:#667085}
+.ac{padding:16px}
+.top{display:flex;align-items:center;gap:12px}
+.ic{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.tag{font-size:11px;font-weight:600;padding:3px 8px;border-radius:999px}
+.bal{font-size:22px;font-weight:700;letter-spacing:-0.02em;margin-top:14px;font-variant-numeric:tabular-nums}
+.acts{display:flex;gap:8px;margin-top:14px}
+.acts a{flex:1;height:40px;border-radius:10px;border:1px solid #E4E7EC;background:#F9FAFB;display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;font-weight:600;color:#101828}
+svg.i{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+</style>
+
+<style>
+html{background:#E4E7EC}
+body{margin:0;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:32px 16px;box-sizing:border-box;background:#E4E7EC}
+body>.v{border-radius:44px;box-shadow:0 0 0 10px #101828,0 30px 60px rgba(16,24,40,.25)}
+.back-to-index{position:fixed;top:12px;left:12px;font:600 13px Inter,system-ui,sans-serif;background:#fff;color:#101828;border:1px solid #D0D5DD;border-radius:999px;padding:8px 14px;text-decoration:none}
+@media (max-width:440px){body{padding:0;background:#F5F7FA}body>.v{border-radius:0;box-shadow:none}.back-to-index{display:none}}
+</style>
+</head>
+<body>
+<a class="back-to-index" href="../index.html">← All screens</a>
+<main class="v">
+<div aria-hidden="true" class="sb"><span>9:41</span><span style="display: flex; gap: 6px; align-items: center"><svg fill="#101828" height="12" viewbox="0 0 18 12" width="18"><rect height="4" rx="1" width="3" x="0" y="8"></rect><rect height="6.5" rx="1" width="3" x="5" y="5.5"></rect><rect height="9" rx="1" width="3" x="10" y="3"></rect><rect height="12" rx="1" width="3" x="15" y="0"></rect></svg><svg fill="none" height="12" stroke="#101828" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 16 12" width="16"><path d="M1.5 4.5a9.5 9.5 0 0 1 13 0M4 7.3a6 6 0 0 1 8 0"></path><circle cx="8" cy="10" fill="#101828" r="1"></circle></svg><svg fill="none" height="12" viewbox="0 0 26 12" width="26"><rect height="11" opacity=".4" rx="3" stroke="#101828" width="22" x=".5" y=".5"></rect><rect fill="#101828" height="8" rx="1.8" width="17" x="2" y="2"></rect><path d="M24 4v4" opacity=".5" stroke="#101828" stroke-linecap="round" stroke-width="1.5"></path></svg></span></div>
+<div class="hd">
+<a aria-label="Back" class="ib" href="08-home-dashboard.html"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M15 5l-7 7 7 7"></path></svg></a>
+<button aria-label="Open a new account" class="ib"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M12 5v14M5 12h14"></path></svg></button>
+</div>
+<h1 style="padding: 4px 20px 0; font-size: 28px; font-weight: 700; letter-spacing: -0.03em">Accounts</h1>
+<div style="margin: 16px 20px 0; display: flex; justify-content: space-between; align-items: flex-end">
+<div><p class="mut" style="font-size: 13px">Total in Naira</p><p style="font-size: 20px; font-weight: 700; margin-top: 4px; letter-spacing: -0.02em">₦4,282,800.00</p></div>
+<p class="mut" style="font-size: 13px">+ $1,240.50 USD</p>
+</div>
+<div style="margin: 16px 20px 0; display: flex; flex-direction: column; gap: 12px">
+<article class="card ac">
+<div class="top">
+<span class="ic" style="background: #101828; color: #FFFFFF; font-size: 13px; font-weight: 700; letter-spacing: -0.04em">v.</span>
+<div style="flex: 1"><h2 style="font-size: 15px; font-weight: 600">Vaulta Current</h2><p class="mut" style="font-size: 13px; margin-top: 2px">0123 •• 4821 · NGN</p></div>
+<span class="tag" style="background: #EAF8F1; color: #0E7F57">Primary</span>
+</div>
+<p class="bal">₦2,450,800.00</p>
+<div class="acts">
+<a href="16-transfer-hub.html"><svg class="i" height="16" viewbox="0 0 24 24" width="16"><path d="M7 17 17 7M8 7h9v9"></path></svg>Transfer</a>
+<a href="29-add-money-to-savings.html"><svg class="i" height="16" viewbox="0 0 24 24" width="16"><path d="M12 5v14M5 12h14"></path></svg>Add money</a>
+<a href="10-account-details.html">Details</a>
+</div>
+</article>
+<article class="card ac">
+<div class="top">
+<span class="ic" style="background: #EAF8F1; color: #0E7F57"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><rect height="14" rx="3" width="16" x="4" y="7"></rect><path d="M8 7V5h8v2M12 11v6M9 14h6"></path></svg></span>
+<div style="flex: 1"><h2 style="font-size: 15px; font-weight: 600">Savings Vault</h2><p class="mut" style="font-size: 13px; margin-top: 2px">3 active goals · NGN</p></div>
+<span class="tag" style="background: #F2F4F7; color: #344054">10% p.a.</span>
+</div>
+<p class="bal">₦1,832,000.00</p>
+<div class="acts">
+<a href="29-add-money-to-savings.html"><svg class="i" height="16" viewbox="0 0 24 24" width="16"><path d="M12 5v14M5 12h14"></path></svg>Add money</a>
+<a href="26-savings-overview.html">View goals</a>
+</div>
+</article>
+<article class="card ac">
+<div class="top">
+<span class="ic" style="background: #F2F4F7; color: #344054; font-size: 16px; font-weight: 700">$</span>
+<div style="flex: 1"><h2 style="font-size: 15px; font-weight: 600">Dollar Wallet</h2><p class="mut" style="font-size: 13px; margin-top: 2px">USD · for online payments</p></div>
+</div>
+<p class="bal">$1,240.50</p>
+<p class="mut" style="font-size: 12px; margin-top: 2px">≈ ₦1,909,371 at ₦1,539.20 / $1</p>
+</article>
+<button style="height: 60px; border-radius: 16px; border: 1.5px dashed #D0D5DD; background: transparent; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px; font-weight: 600; color: #344054; cursor: pointer"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M12 5v14M5 12h14"></path></svg>Open a new account</button>
+</div>
+<div class="hb"></div>
+</main>
+</body>
+</html>

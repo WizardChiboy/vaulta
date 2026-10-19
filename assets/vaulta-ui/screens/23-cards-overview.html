@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vaulta — Cards</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+body{margin:0}
+*{box-sizing:border-box}
+h1,h2,h3,p{margin:0}
+a{color:#0E7F57;text-decoration:none}a:hover{color:#0B6646}
+button,input{font-family:inherit}
+.v{width:393px;height:852px;background:#F5F7FA;font-family:'Inter',system-ui,sans-serif;color:#101828;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.sb{height:50px;flex-shrink:0;padding:16px 26px 0 34px;display:flex;justify-content:space-between;font-size:15px;font-weight:600}
+.hb{position:absolute;bottom:8px;left:129px;width:134px;height:5px;border-radius:3px;background:#101828}
+.hd{height:56px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 20px}
+.ib{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#FFFFFF;border:1px solid #E4E7EC;color:#101828;cursor:pointer;padding:0}
+.card{background:#FFFFFF;border:1px solid #E4E7EC;border-radius:16px}
+.mut{color:#667085}
+.qa{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:13px;font-weight:500;color:#344054;background:transparent;border:0;cursor:pointer;padding:0}
+.qa span{width:52px;height:52px;border-radius:16px;background:#FFFFFF;border:1px solid #E4E7EC;display:flex;align-items:center;justify-content:center;color:#0E7F57}
+.qa:hover{color:#101828}
+.rr{display:flex;align-items:center;gap:12px;padding:12px 16px;color:#101828;border-bottom:1px solid #F2F4F7}
+.rr:last-child{border-bottom:0}
+.rr:hover{color:#101828;background:#F9FAFB}
+svg.i{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+</style>
+
+<style>
+html{background:#E4E7EC}
+body{margin:0;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:32px 16px;box-sizing:border-box;background:#E4E7EC}
+body>.v{border-radius:44px;box-shadow:0 0 0 10px #101828,0 30px 60px rgba(16,24,40,.25)}
+.back-to-index{position:fixed;top:12px;left:12px;font:600 13px Inter,system-ui,sans-serif;background:#fff;color:#101828;border:1px solid #D0D5DD;border-radius:999px;padding:8px 14px;text-decoration:none}
+@media (max-width:440px){body{padding:0;background:#F5F7FA}body>.v{border-radius:0;box-shadow:none}.back-to-index{display:none}}
+</style>
+</head>
+<body>
+<a class="back-to-index" href="../index.html">← All screens</a>
+<main class="v">
+<div aria-hidden="true" class="sb"><span>9:41</span><span style="display: flex; gap: 6px; align-items: center"><svg fill="#101828" height="12" viewbox="0 0 18 12" width="18"><rect height="4" rx="1" width="3" x="0" y="8"></rect><rect height="6.5" rx="1" width="3" x="5" y="5.5"></rect><rect height="9" rx="1" width="3" x="10" y="3"></rect><rect height="12" rx="1" width="3" x="15" y="0"></rect></svg><svg fill="none" height="12" stroke="#101828" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 16 12" width="16"><path d="M1.5 4.5a9.5 9.5 0 0 1 13 0M4 7.3a6 6 0 0 1 8 0"></path><circle cx="8" cy="10" fill="#101828" r="1"></circle></svg><svg fill="none" height="12" viewbox="0 0 26 12" width="26"><rect height="11" opacity=".4" rx="3" stroke="#101828" width="22" x=".5" y=".5"></rect><rect fill="#101828" height="8" rx="1.8" width="17" x="2" y="2"></rect><path d="M24 4v4" opacity=".5" stroke="#101828" stroke-linecap="round" stroke-width="1.5"></path></svg></span></div>
+<div class="hd">
+<a aria-label="Back" class="ib" href="08-home-dashboard.html"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M15 5l-7 7 7 7"></path></svg></a>
+<button aria-label="New card" class="ib"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M12 5v14M5 12h14"></path></svg></button>
+</div>
+<h1 style="padding: 4px 20px 0; font-size: 28px; font-weight: 700; letter-spacing: -0.03em">Cards</h1>
+<a aria-label="Virtual debit card ending 7302, open details" href="24-card-details.html" style="margin: 16px 20px 0; height: 208px; border-radius: 20px; background: #101828; color: #FFFFFF; padding: 20px 22px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between">
+<span aria-hidden="true" style="position: absolute; right: -50px; bottom: -90px; width: 240px; height: 240px; border-radius: 120px; border: 32px solid #1D2939"></span>
+<span aria-hidden="true" style="position: absolute; right: 60px; bottom: -40px; width: 120px; height: 120px; border-radius: 60px; border: 2px solid #16A875; opacity: 0.5"></span>
+<span style="position: relative; display: flex; justify-content: space-between; align-items: center"><span style="font-size: 20px; font-weight: 700; letter-spacing: -0.045em">vaulta<span style="color: #16A875">.</span></span><span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: #D0D5DD">VIRTUAL</span></span>
+<span style="position: relative; display: flex; align-items: center; gap: 12px"><span style="width: 38px; height: 28px; border-radius: 6px; background: #D0D5DD; opacity: 0.85"></span><svg class="i" height="22" style="color: #D0D5DD" viewbox="0 0 24 24" width="22"><path d="M8 8a6 6 0 0 1 0 8M12 5a10 10 0 0 1 0 14M16 3a13 13 0 0 1 0 18"></path></svg></span>
+<span style="position: relative; font-size: 19px; font-weight: 600; letter-spacing: 0.14em">•••• •••• •••• 7302</span>
+<span style="position: relative; display: flex; justify-content: space-between; align-items: flex-end; font-size: 12px; color: #D0D5DD"><span>ADAEZE OKAFOR</span><span>09/29 <strong style="color: #FFFFFF; margin-left: 10px; letter-spacing: 0.08em">DEBIT</strong></span></span>
+</a>
+<div aria-hidden="true" style="display: flex; justify-content: center; gap: 6px; margin-top: 10px"><span style="width: 18px; height: 6px; border-radius: 3px; background: #16A875"></span><span style="width: 6px; height: 6px; border-radius: 3px; background: #D0D5DD"></span></div>
+<nav aria-label="Card actions" style="margin: 14px 20px 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr))">
+<a class="qa" href="25-card-controls.html"><span><svg class="i" height="22" viewbox="0 0 24 24" width="22"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9"></path></svg></span>Freeze</a>
+<a class="qa" href="24-card-details.html"><span><svg class="i" height="22" viewbox="0 0 24 24" width="22"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg></span>Details</a>
+<a class="qa" href="25-card-controls.html"><span><svg class="i" height="22" viewbox="0 0 24 24" width="22"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"></path></svg></span>Limits</a>
+<a class="qa" href="25-card-controls.html"><span><svg class="i" height="22" viewbox="0 0 24 24" width="22"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"></path></svg></span>Settings</a>
+</nav>
+<div class="card" style="margin: 18px 20px 0; padding: 14px 16px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><span class="mut" style="font-size: 13px">Card spend · October</span><span style="font-size: 13px; font-weight: 600">71%</span></div>
+<p style="font-size: 18px; font-weight: 700; margin-top: 4px">₦212,840 <span class="mut" style="font-size: 13px; font-weight: 400">of ₦300,000 limit</span></p>
+<div style="height: 8px; border-radius: 4px; background: #EAF8F1; margin-top: 10px"><div style="width: 71%; height: 8px; border-radius: 4px; background: #16A875"></div></div>
+</div>
+<h2 style="margin: 18px 20px 8px; font-size: 17px; font-weight: 600">Your cards</h2>
+<div class="card" style="margin: 0 20px">
+<a class="rr" href="24-card-details.html"><span style="width: 48px; height: 32px; border-radius: 6px; background: #101828; display: flex; align-items: flex-end; justify-content: flex-end; padding: 4px 5px; font-size: 8px; font-weight: 700; color: #16A875">v.</span><span style="flex: 1"><span style="display: block; font-size: 15px; font-weight: 500">Virtual debit</span><span class="mut" style="display: block; font-size: 13px; margin-top: 2px">•••• 7302 · Online payments</span></span><span style="font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 999px; background: #ECFDF3; color: #067647">Active</span></a>
+<a class="rr" href="25-card-controls.html"><span style="width: 48px; height: 32px; border-radius: 6px; background: #E4E7EC; display: flex; align-items: center; justify-content: center; color: #475467"><svg class="i" height="16" viewbox="0 0 24 24" width="16"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9"></path></svg></span><span style="flex: 1"><span style="display: block; font-size: 15px; font-weight: 500">Physical debit</span><span class="mut" style="display: block; font-size: 13px; margin-top: 2px">•••• 1159 · Frozen by you</span></span><span style="font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 999px; background: #FFFAEB; color: #B54708">Frozen</span></a>
+</div>
+<div class="hb"></div>
+</main>
+</body>
+</html>

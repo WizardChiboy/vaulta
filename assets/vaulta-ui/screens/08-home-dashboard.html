@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vaulta — Home</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+body{margin:0}
+*{box-sizing:border-box}
+h1,h2,h3,p{margin:0}
+a{color:#0E7F57;text-decoration:none}a:hover{color:#0B6646}
+button,input{font-family:inherit}
+.v{width:393px;height:852px;background:#F5F7FA;font-family:'Inter',system-ui,sans-serif;color:#101828;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.sb{height:50px;flex-shrink:0;padding:16px 26px 0 34px;display:flex;justify-content:space-between;font-size:15px;font-weight:600}
+.hb{position:absolute;bottom:8px;left:129px;width:134px;height:5px;border-radius:3px;background:#101828}
+.ib{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#FFFFFF;border:1px solid #E4E7EC;color:#101828;cursor:pointer;padding:0;position:relative}
+.card{background:#FFFFFF;border:1px solid #E4E7EC;border-radius:16px}
+.mut{color:#667085}
+.qa{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:13px;font-weight:500;color:#344054}
+.qa span.t{width:56px;height:56px;border-radius:16px;background:#FFFFFF;border:1px solid #E4E7EC;display:flex;align-items:center;justify-content:center;color:#0E7F57}
+.qa:hover{color:#101828}
+.tx{display:flex;align-items:center;gap:12px;padding:10px 16px;color:#101828}
+.tx:hover{color:#101828;background:#F9FAFB}
+.ic{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#F2F4F7;color:#344054}
+.nm{font-size:15px;font-weight:500}
+.sub{font-size:13px;color:#667085;margin-top:2px}
+.amt{margin-left:auto;font-size:15px;font-weight:600;font-variant-numeric:tabular-nums;text-align:right}
+.nav{position:absolute;left:0;right:0;bottom:0;height:84px;background:#FFFFFF;border-top:1px solid #E4E7EC;display:flex;padding:6px 12px 0}
+.nav a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;height:50px;font-size:11px;font-weight:500;color:#667085}
+.nav a.on{color:#0E7F57;font-weight:600}
+svg.i{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+</style>
+
+<style>
+html{background:#E4E7EC}
+body{margin:0;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:32px 16px;box-sizing:border-box;background:#E4E7EC}
+body>.v{border-radius:44px;box-shadow:0 0 0 10px #101828,0 30px 60px rgba(16,24,40,.25)}
+.back-to-index{position:fixed;top:12px;left:12px;font:600 13px Inter,system-ui,sans-serif;background:#fff;color:#101828;border:1px solid #D0D5DD;border-radius:999px;padding:8px 14px;text-decoration:none}
+@media (max-width:440px){body{padding:0;background:#F5F7FA}body>.v{border-radius:0;box-shadow:none}.back-to-index{display:none}}
+</style>
+</head>
+<body>
+<a class="back-to-index" href="../index.html">← All screens</a>
+<main class="v">
+<div aria-hidden="true" class="sb"><span>9:41</span><span style="display: flex; gap: 6px; align-items: center"><svg fill="#101828" height="12" viewbox="0 0 18 12" width="18"><rect height="4" rx="1" width="3" x="0" y="8"></rect><rect height="6.5" rx="1" width="3" x="5" y="5.5"></rect><rect height="9" rx="1" width="3" x="10" y="3"></rect><rect height="12" rx="1" width="3" x="15" y="0"></rect></svg><svg fill="none" height="12" stroke="#101828" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 16 12" width="16"><path d="M1.5 4.5a9.5 9.5 0 0 1 13 0M4 7.3a6 6 0 0 1 8 0"></path><circle cx="8" cy="10" fill="#101828" r="1"></circle></svg><svg fill="none" height="12" viewbox="0 0 26 12" width="26"><rect height="11" opacity=".4" rx="3" stroke="#101828" width="22" x=".5" y=".5"></rect><rect fill="#101828" height="8" rx="1.8" width="17" x="2" y="2"></rect><path d="M24 4v4" opacity=".5" stroke="#101828" stroke-linecap="round" stroke-width="1.5"></path></svg></span></div>
+<header style="height: 60px; padding: 0 20px; display: flex; align-items: center; gap: 12px">
+<a aria-label="Profile" href="34-profile.html" style="width: 44px; height: 44px; border-radius: 22px; background: #EAF8F1; color: #0E7F57; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700">AO</a>
+<div style="flex: 1">
+<p class="mut" style="font-size: 13px">Good evening,</p>
+<h1 style="font-size: 18px; font-weight: 600; letter-spacing: -0.01em">Adaeze</h1>
+</div>
+<a aria-label="Notifications, 3 unread" class="ib" href="15-notifications.html"><svg class="i" height="22" viewbox="0 0 24 24" width="22"><path d="M6 16v-5a6 6 0 1 1 12 0v5l2 2H4z"></path><path d="M10 21h4"></path></svg><span style="position: absolute; top: 9px; right: 10px; width: 9px; height: 9px; border-radius: 5px; background: #F04438; border: 2px solid #FFFFFF"></span></a>
+</header>
+<section aria-label="Balance" style="margin: 8px 20px 0; background: #101828; border-radius: 20px; padding: 20px; color: #FFFFFF; position: relative; overflow: hidden">
+<div aria-hidden="true" style="position: absolute; right: -60px; top: -70px; width: 200px; height: 200px; border-radius: 100px; border: 28px solid #1D2939"></div>
+<div style="position: relative; display: flex; align-items: center; justify-content: space-between">
+<span style="font-size: 13px; color: #98A2B3">Total balance</span>
+<button aria-label="Hide balance" style="width: 44px; height: 32px; margin-right: -10px; border: 0; background: transparent; color: #D0D5DD; display: flex; align-items: center; justify-content: center; cursor: pointer">
+<svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+
+</button>
+</div>
+<p style="position: relative; font-size: 32px; font-weight: 700; letter-spacing: -0.025em; margin-top: 6px; font-variant-numeric: tabular-nums">₦2,450,800<span style="color: #98A2B3">.00</span></p>
+
+<div style="position: relative; display: flex; align-items: center; gap: 8px; margin-top: 6px; font-size: 13px; color: #D0D5DD">
+<span>Vaulta Current · 0123 •• 4821</span>
+<button aria-label="Copy account number" style="width: 28px; height: 28px; border: 0; background: transparent; color: #98A2B3; padding: 0; display: flex; align-items: center; justify-content: center"><svg class="i" height="15" viewbox="0 0 24 24" width="15"><rect height="12" rx="2.5" width="12" x="8" y="8"></rect><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path></svg></button>
+</div>
+<div style="position: relative; margin-top: 16px; padding-top: 14px; border-top: 1px solid #344054; display: flex; justify-content: space-between; align-items: center">
+<span style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: #D0D5DD"><span style="width: 22px; height: 22px; border-radius: 11px; background: #16A875; color: #101828; display: flex; align-items: center; justify-content: center"><svg class="i" height="13" style="stroke-width: 2.6" viewbox="0 0 24 24" width="13"><path d="M17 7 7 17M16 17H7V8"></path></svg></span>₦935,000 in this month</span>
+<a href="09-all-accounts.html" style="color: #6CE9A6; font-size: 13px; font-weight: 600; padding: 6px 0">All accounts</a>
+</div>
+</section>
+<nav aria-label="Quick actions" style="margin: 18px 20px 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr))">
+<a class="qa" href="16-transfer-hub.html"><span class="t"><svg class="i" height="24" viewbox="0 0 24 24" width="24"><path d="M7 17 17 7M8 7h9v9"></path></svg></span>Transfer</a>
+<a class="qa" href="29-add-money-to-savings.html"><span class="t"><svg class="i" height="24" viewbox="0 0 24 24" width="24"><path d="M12 5v14M5 12h14"></path></svg></span>Add Money</a>
+<a class="qa" href="23-cards-overview.html"><span class="t"><svg class="i" height="24" viewbox="0 0 24 24" width="24"><rect height="14" rx="2.5" width="18" x="3" y="5"></rect><path d="M3 10h18M7 15h3"></path></svg></span>Cards</a>
+<a class="qa" href="26-savings-overview.html"><span class="t"><svg class="i" height="24" viewbox="0 0 24 24" width="24"><rect height="14" rx="3" width="16" x="4" y="7"></rect><path d="M8 7V5h8v2M12 11v6M9 14h6"></path></svg></span>Savings</a>
+</nav>
+<div style="margin: 18px 20px 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+<a class="card" href="30-spending-analytics.html" style="padding: 14px; color: #101828; display: flex; flex-direction: column">
+<span class="mut" style="font-size: 12px; font-weight: 500">Spent in October</span>
+<span style="font-size: 18px; font-weight: 700; margin-top: 4px; letter-spacing: -0.01em">₦486,250</span>
+<span aria-hidden="true" style="display: flex; align-items: flex-end; gap: 5px; height: 30px; margin-top: 10px"><span style="flex: 1; height: 40%; background: #E4E7EC; border-radius: 3px"></span><span style="flex: 1; height: 65%; background: #E4E7EC; border-radius: 3px"></span><span style="flex: 1; height: 50%; background: #E4E7EC; border-radius: 3px"></span><span style="flex: 1; height: 85%; background: #E4E7EC; border-radius: 3px"></span><span style="flex: 1; height: 60%; background: #E4E7EC; border-radius: 3px"></span><span style="flex: 1; height: 100%; background: #16A875; border-radius: 3px"></span></span>
+<span class="mut" style="font-size: 12px; margin-top: 8px">81% of ₦600k budget</span>
+</a>
+<a class="card" href="28-savings-goal-details.html" style="padding: 14px; color: #101828; display: flex; flex-direction: column">
+<span class="mut" style="font-size: 12px; font-weight: 500">Emergency fund</span>
+<span style="font-size: 18px; font-weight: 700; margin-top: 4px; letter-spacing: -0.01em">₦780,000</span>
+<span class="mut" style="font-size: 12px; margin-top: 2px">of ₦1,200,000</span>
+<span style="height: 8px; border-radius: 4px; background: #EAF8F1; margin-top: 14px"><span style="display: block; width: 65%; height: 8px; border-radius: 4px; background: #16A875"></span></span>
+<span style="font-size: 12px; font-weight: 600; color: #0E7F57; margin-top: 8px">65% saved</span>
+</a>
+</div>
+<div style="margin: 18px 20px 0; display: flex; justify-content: space-between; align-items: center">
+<h2 style="font-size: 17px; font-weight: 600">Recent transactions</h2>
+<a href="11-transaction-history.html" style="font-size: 14px; font-weight: 600">See all</a>
+</div>
+<div class="card" style="margin: 10px 20px 0; padding: 4px 0">
+<a class="tx" href="12-transaction-details.html"><span class="ic"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M3 4h2l2.4 11h11L21 8H6.3"></path><circle cx="9" cy="20" r="1.4"></circle><circle cx="17" cy="20" r="1.4"></circle></svg></span><span><span class="nm" style="display: block">Shoprite Lekki</span><span class="sub" style="display: block">Groceries · 10:24</span></span><span class="amt">−₦18,450.00</span></a>
+<a class="tx" href="12-transaction-details.html"><span class="ic" style="background: #EAF8F1; color: #0E7F57"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M17 7 7 17M16 17H7V8"></path></svg></span><span><span class="nm" style="display: block">Tunde Bakare</span><span class="sub" style="display: block">Transfer in · 08:02</span></span><span class="amt" style="color: #0E7F57">+₦45,000.00</span></a>
+<a class="tx" href="12-transaction-details.html"><span class="ic"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M5 16h14v-4l-2-5H7l-2 5zM5 16v3M19 16v3M8 13h.01M16 13h.01"></path></svg></span><span><span class="nm" style="display: block">Bolt Ride</span><span class="sub" style="display: block">Transport · Yesterday</span></span><span class="amt">−₦3,200.00</span></a>
+</div>
+<nav aria-label="Main" class="nav">
+<a aria-current="page" class="on" href="08-home-dashboard.html"><svg class="i" height="24" viewbox="0 0 24 24" width="24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg>Home</a>
+<a href="16-transfer-hub.html"><svg class="i" height="24" viewbox="0 0 24 24" width="24"><path d="M7 7h13l-4-4M17 17H4l4 4"></path></svg>Transfer</a>
+<a href="26-savings-overview.html"><svg class="i" height="24" viewbox="0 0 24 24" width="24"><rect height="14" rx="3" width="16" x="4" y="7"></rect><path d="M8 7V5h8v2M12 11v6M9 14h6"></path></svg>Savings</a>
+<a href="34-profile.html"><svg class="i" height="24" viewbox="0 0 24 24" width="24"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 4-6 8-6s8 2 8 6"></path></svg>Profile</a>
+</nav>
+<div class="hb"></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vaulta — New savings goal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+body{margin:0}
+*{box-sizing:border-box}
+h1,h2,h3,p{margin:0}
+a{color:#0E7F57;text-decoration:none}a:hover{color:#0B6646}
+button,input{font-family:inherit}
+.v{width:393px;height:852px;background:#F5F7FA;font-family:'Inter',system-ui,sans-serif;color:#101828;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.sb{height:50px;flex-shrink:0;padding:16px 26px 0 34px;display:flex;justify-content:space-between;font-size:15px;font-weight:600}
+.hb{position:absolute;bottom:8px;left:129px;width:134px;height:5px;border-radius:3px;background:#101828}
+.hd{height:56px;flex-shrink:0;display:flex;align-items:center;gap:12px;padding:0 20px}
+.ib{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#FFFFFF;border:1px solid #E4E7EC;color:#101828;cursor:pointer;padding:0}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;height:52px;width:100%;border-radius:14px;font-size:16px;font-weight:600;border:0;cursor:pointer;text-decoration:none}
+.bp{background:#16A875;color:#101828}.bp:hover{background:#13965F;color:#101828}
+.lbl{display:block;font-size:13px;font-weight:500;color:#344054;margin-bottom:6px}
+.in{width:100%;height:52px;border:1px solid #D0D5DD;border-radius:12px;padding:0 14px;font-size:16px;color:#101828;background:#FFFFFF;outline:none}
+.mut{color:#667085}
+.pick{height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+svg.i{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+</style>
+
+<style>
+html{background:#E4E7EC}
+body{margin:0;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:32px 16px;box-sizing:border-box;background:#E4E7EC}
+body>.v{border-radius:44px;box-shadow:0 0 0 10px #101828,0 30px 60px rgba(16,24,40,.25)}
+.back-to-index{position:fixed;top:12px;left:12px;font:600 13px Inter,system-ui,sans-serif;background:#fff;color:#101828;border:1px solid #D0D5DD;border-radius:999px;padding:8px 14px;text-decoration:none}
+@media (max-width:440px){body{padding:0;background:#F5F7FA}body>.v{border-radius:0;box-shadow:none}.back-to-index{display:none}}
+</style>
+</head>
+<body>
+<a class="back-to-index" href="../index.html">← All screens</a>
+<main class="v">
+<div aria-hidden="true" class="sb"><span>9:41</span><span style="display: flex; gap: 6px; align-items: center"><svg fill="#101828" height="12" viewbox="0 0 18 12" width="18"><rect height="4" rx="1" width="3" x="0" y="8"></rect><rect height="6.5" rx="1" width="3" x="5" y="5.5"></rect><rect height="9" rx="1" width="3" x="10" y="3"></rect><rect height="12" rx="1" width="3" x="15" y="0"></rect></svg><svg fill="none" height="12" stroke="#101828" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 16 12" width="16"><path d="M1.5 4.5a9.5 9.5 0 0 1 13 0M4 7.3a6 6 0 0 1 8 0"></path><circle cx="8" cy="10" fill="#101828" r="1"></circle></svg><svg fill="none" height="12" viewbox="0 0 26 12" width="26"><rect height="11" opacity=".4" rx="3" stroke="#101828" width="22" x=".5" y=".5"></rect><rect fill="#101828" height="8" rx="1.8" width="17" x="2" y="2"></rect><path d="M24 4v4" opacity=".5" stroke="#101828" stroke-linecap="round" stroke-width="1.5"></path></svg></span></div>
+<div class="hd"><a aria-label="Back" class="ib" href="26-savings-overview.html"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M15 5l-7 7 7 7"></path></svg></a></div>
+<h1 style="padding: 4px 20px 0; font-size: 28px; font-weight: 700; letter-spacing: -0.03em">New savings goal</h1>
+<div style="padding: 18px 20px 0">
+<span class="lbl" id="ico">Choose an icon</span>
+<div aria-labelledby="ico" role="radiogroup" style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px">
+
+<button aria-checked="true" aria-label="Home" class="pick" role="radio" style="background: #EAF8F1; border: 2px solid #16A875; color: #0E7F57"><svg class="i" height="22" viewbox="0 0 24 24" width="22"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"></path></svg></button>
+
+<button aria-checked="false" aria-label="Emergency" class="pick" role="radio" style="background: #FFFFFF; border: 1px solid #E4E7EC; color: #475467"><svg class="i" height="22" viewbox="0 0 24 24" width="22"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path></svg></button>
+
+<button aria-checked="false" aria-label="Travel" class="pick" role="radio" style="background: #FFFFFF; border: 1px solid #E4E7EC; color: #475467"><svg class="i" height="22" viewbox="0 0 24 24" width="22"><path d="M10.5 13.5 3 11l1.5-1.5 7 1 4-4a2 2 0 0 1 3 3l-4 4 1 7L19 21l-2.5-7.5"></path></svg></button>
+
+<button aria-checked="false" aria-label="Gadgets" class="pick" role="radio" style="background: #FFFFFF; border: 1px solid #E4E7EC; color: #475467"><svg class="i" height="22" viewbox="0 0 24 24" width="22"><path d="M4 5h16v11H4zM2 19h20"></path></svg></button>
+
+<button aria-checked="false" aria-label="Education" class="pick" role="radio" style="background: #FFFFFF; border: 1px solid #E4E7EC; color: #475467"><svg class="i" height="22" viewbox="0 0 24 24" width="22"><path d="M22 10 12 5 2 10l10 5zM6 12v5c3 2 9 2 12 0v-5"></path></svg></button>
+
+<button aria-checked="false" aria-label="Car" class="pick" role="radio" style="background: #FFFFFF; border: 1px solid #E4E7EC; color: #475467"><svg class="i" height="22" viewbox="0 0 24 24" width="22"><path d="M5 16h14v-4l-2-5H7l-2 5zM5 16v3M19 16v3"></path></svg></button>
+
+</div>
+</div>
+<div style="padding: 18px 20px 0; display: flex; flex-direction: column; gap: 14px">
+<div><label class="lbl" for="gn">Goal name</label><input class="in" id="gn" value="Rent 2027"/></div>
+<div>
+<label class="lbl" for="ta">Target amount</label>
+<div style="position: relative"><span style="position: absolute; left: 14px; top: 15px; font-size: 16px; color: #667085">₦</span><input class="in" id="ta" inputmode="decimal" style="padding-left: 32px" value="1,800,000"/></div>
+</div>
+<div>
+<span class="lbl" id="td">Target date</span>
+<button aria-labelledby="td" style="width: 100%; height: 52px; border: 1px solid #D0D5DD; border-radius: 12px; background: #FFFFFF; padding: 0 14px; display: flex; align-items: center; gap: 10px; font-size: 16px; color: #101828; cursor: pointer"><span style="flex: 1; text-align: left">31 January 2027</span><svg class="i" height="20" style="color: #667085" viewbox="0 0 24 24" width="20"><rect height="16" rx="2" width="16" x="4" y="5"></rect><path d="M4 10h16M9 3v4M15 3v4"></path></svg></button>
+</div>
+<div>
+<span class="lbl">Auto-save</span>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; padding: 4px; background: #EAECF0; border-radius: 12px">
+<button style="height: 40px; border: 0; border-radius: 9px; background: transparent; font-size: 14px; font-weight: 500; color: #667085">Weekly</button>
+<button aria-pressed="true" style="height: 40px; border: 0; border-radius: 9px; background: #FFFFFF; font-size: 14px; font-weight: 600; color: #101828; box-shadow: 0 1px 2px rgba(16,24,40,0.08)">Monthly</button>
+<button style="height: 40px; border: 0; border-radius: 9px; background: transparent; font-size: 14px; font-weight: 500; color: #667085">Manual</button>
+</div>
+</div>
+</div>
+<div style="margin: 14px 20px 0; padding: 12px 14px; border-radius: 12px; background: #EAF8F1; display: flex; gap: 10px; align-items: flex-start; font-size: 13px; line-height: 1.45; color: #344054">
+<svg class="i" height="18" style="color: #0E7F57" viewbox="0 0 24 24" width="18"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"></path></svg>
+<span>Save about <strong style="color: #101828">₦514,300 a month</strong> from Vaulta Current to reach this by 31 Jan 2027.</span>
+</div>
+<div style="margin-top: auto; padding: 0 20px 40px"><a class="btn bp" href="28-savings-goal-details.html">Create goal</a></div>
+<div class="hb"></div>
+</main>
+</body>
+</html>

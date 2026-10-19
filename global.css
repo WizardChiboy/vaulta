@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Web only: inputs show focus with their border colour (see TextField), not the browser ring. */
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+}

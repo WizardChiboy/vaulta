@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vaulta — Account details</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+body{margin:0}
+*{box-sizing:border-box}
+h1,h2,h3,p{margin:0}
+a{color:#0E7F57;text-decoration:none}a:hover{color:#0B6646}
+button,input{font-family:inherit}
+.v{width:393px;height:852px;background:#F5F7FA;font-family:'Inter',system-ui,sans-serif;color:#101828;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.sb{height:50px;flex-shrink:0;padding:16px 26px 0 34px;display:flex;justify-content:space-between;font-size:15px;font-weight:600}
+.hb{position:absolute;bottom:8px;left:129px;width:134px;height:5px;border-radius:3px;background:#101828}
+.hd{height:56px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 20px}
+.ib{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#FFFFFF;border:1px solid #E4E7EC;color:#101828;cursor:pointer;padding:0}
+.card{background:#FFFFFF;border:1px solid #E4E7EC;border-radius:16px}
+.mut{color:#667085}
+.qa{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:13px;font-weight:500;color:#344054}
+.qa span{width:52px;height:52px;border-radius:16px;background:#FFFFFF;border:1px solid #E4E7EC;display:flex;align-items:center;justify-content:center;color:#0E7F57}
+.kv{display:flex;justify-content:space-between;align-items:center;padding:13px 16px;font-size:14px;border-bottom:1px solid #F2F4F7}
+.kv:last-child{border-bottom:0}
+.kv dt{color:#667085}
+.kv dd{margin:0;font-weight:500;display:flex;align-items:center;gap:6px}
+.tx{display:flex;align-items:center;gap:12px;padding:10px 16px;color:#101828}
+.tx:hover{color:#101828;background:#F9FAFB}
+.ic{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#F2F4F7;color:#344054}
+.nm{display:block;font-size:15px;font-weight:500}
+.sub{display:block;font-size:13px;color:#667085;margin-top:2px}
+.amt{margin-left:auto;font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
+svg.i{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+</style>
+
+<style>
+html{background:#E4E7EC}
+body{margin:0;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:32px 16px;box-sizing:border-box;background:#E4E7EC}
+body>.v{border-radius:44px;box-shadow:0 0 0 10px #101828,0 30px 60px rgba(16,24,40,.25)}
+.back-to-index{position:fixed;top:12px;left:12px;font:600 13px Inter,system-ui,sans-serif;background:#fff;color:#101828;border:1px solid #D0D5DD;border-radius:999px;padding:8px 14px;text-decoration:none}
+@media (max-width:440px){body{padding:0;background:#F5F7FA}body>.v{border-radius:0;box-shadow:none}.back-to-index{display:none}}
+</style>
+</head>
+<body>
+<a class="back-to-index" href="../index.html">← All screens</a>
+<main class="v">
+<div aria-hidden="true" class="sb"><span>9:41</span><span style="display: flex; gap: 6px; align-items: center"><svg fill="#101828" height="12" viewbox="0 0 18 12" width="18"><rect height="4" rx="1" width="3" x="0" y="8"></rect><rect height="6.5" rx="1" width="3" x="5" y="5.5"></rect><rect height="9" rx="1" width="3" x="10" y="3"></rect><rect height="12" rx="1" width="3" x="15" y="0"></rect></svg><svg fill="none" height="12" stroke="#101828" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 16 12" width="16"><path d="M1.5 4.5a9.5 9.5 0 0 1 13 0M4 7.3a6 6 0 0 1 8 0"></path><circle cx="8" cy="10" fill="#101828" r="1"></circle></svg><svg fill="none" height="12" viewbox="0 0 26 12" width="26"><rect height="11" opacity=".4" rx="3" stroke="#101828" width="22" x=".5" y=".5"></rect><rect fill="#101828" height="8" rx="1.8" width="17" x="2" y="2"></rect><path d="M24 4v4" opacity=".5" stroke="#101828" stroke-linecap="round" stroke-width="1.5"></path></svg></span></div>
+<div class="hd">
+<a aria-label="Back" class="ib" href="09-all-accounts.html"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M15 5l-7 7 7 7"></path></svg></a>
+<span style="font-size: 16px; font-weight: 600">Vaulta Current</span>
+<button aria-label="More options" class="ib"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M12 6h.01M12 12h.01M12 18h.01" style="stroke-width: 3"></path></svg></button>
+</div>
+<div style="padding: 16px 20px 0; text-align: center">
+<p class="mut" style="font-size: 13px">Available balance</p>
+<h1 style="font-size: 34px; font-weight: 700; letter-spacing: -0.03em; margin-top: 6px; font-variant-numeric: tabular-nums">₦2,450,800<span style="color: #98A2B3">.00</span></h1>
+<p class="mut" style="font-size: 13px; margin-top: 6px">Ledger balance ₦2,468,250.00 · 1 pending</p>
+</div>
+<nav aria-label="Account actions" style="margin: 20px 36px 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr))">
+<a class="qa" href="16-transfer-hub.html"><span><svg class="i" height="22" viewbox="0 0 24 24" width="22"><path d="M7 17 17 7M8 7h9v9"></path></svg></span>Transfer</a>
+<a class="qa" href="29-add-money-to-savings.html"><span><svg class="i" height="22" viewbox="0 0 24 24" width="22"><path d="M12 5v14M5 12h14"></path></svg></span>Add money</a>
+<a class="qa" href="33-financial-activity-report.html"><span><svg class="i" height="22" viewbox="0 0 24 24" width="22"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v5h5M9 13h6M9 17h4"></path></svg></span>Statement</a>
+</nav>
+<h2 style="margin: 24px 20px 10px; font-size: 17px; font-weight: 600">Account information</h2>
+<dl class="card" style="margin: 0 20px">
+<div class="kv"><dt>Account name</dt><dd>Adaeze Okafor</dd></div>
+<div class="kv"><dt>Account number</dt><dd>0123 •• 4821<button aria-label="Copy account number" style="width: 28px; height: 28px; border: 0; background: transparent; color: #0E7F57; padding: 0; display: flex; align-items: center; justify-content: center"><svg class="i" height="16" viewbox="0 0 24 24" width="16"><rect height="12" rx="2.5" width="12" x="8" y="8"></rect><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path></svg></button></dd></div>
+<div class="kv"><dt>Bank</dt><dd>Vaulta MFB (demo)</dd></div>
+<div class="kv"><dt>Account type</dt><dd>Current · Tier 3</dd></div>
+<div class="kv"><dt>Opened</dt><dd>12 Mar 2024</dd></div>
+</dl>
+<div style="margin: 22px 20px 10px; display: flex; justify-content: space-between; align-items: center">
+<h2 style="font-size: 17px; font-weight: 600">Recent activity</h2>
+<a href="11-transaction-history.html" style="font-size: 14px; font-weight: 600">See all</a>
+</div>
+<div class="card" style="margin: 0 20px; padding: 4px 0">
+<a class="tx" href="12-transaction-details.html"><span class="ic"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M3 4h2l2.4 11h11L21 8H6.3"></path><circle cx="9" cy="20" r="1.4"></circle><circle cx="17" cy="20" r="1.4"></circle></svg></span><span><span class="nm">Shoprite Lekki</span><span class="sub">Today · 10:24</span></span><span class="amt">−₦18,450.00</span></a>
+<a class="tx" href="12-transaction-details.html"><span class="ic" style="background: #EAF8F1; color: #0E7F57"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M17 7 7 17M16 17H7V8"></path></svg></span><span><span class="nm">Tunde Bakare</span><span class="sub">Today · 08:02</span></span><span class="amt" style="color: #0E7F57">+₦45,000.00</span></a>
+</div>
+<div class="hb"></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vaulta — Notifications</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+body{margin:0}
+*{box-sizing:border-box}
+h1,h2,h3,p{margin:0}
+a{color:#0E7F57;text-decoration:none}a:hover{color:#0B6646}
+button,input{font-family:inherit}
+.v{width:393px;height:852px;background:#F5F7FA;font-family:'Inter',system-ui,sans-serif;color:#101828;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.sb{height:50px;flex-shrink:0;padding:16px 26px 0 34px;display:flex;justify-content:space-between;font-size:15px;font-weight:600}
+.hb{position:absolute;bottom:8px;left:129px;width:134px;height:5px;border-radius:3px;background:#101828}
+.hd{height:56px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 20px}
+.ib{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#FFFFFF;border:1px solid #E4E7EC;color:#101828;cursor:pointer;padding:0}
+.card{background:#FFFFFF;border:1px solid #E4E7EC;border-radius:16px}
+.mut{color:#667085}
+.chip{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 14px;border-radius:999px;font-size:14px;font-weight:500;border:1px solid #E4E7EC;background:#FFFFFF;color:#344054;cursor:pointer;white-space:nowrap}
+.chip.on{background:#EAF8F1;border-color:#16A875;color:#0E7F57;font-weight:600}
+.sh{font-size:13px;font-weight:600;color:#667085;margin:16px 20px 8px}
+.n{display:flex;gap:12px;padding:12px 16px;border-bottom:1px solid #F2F4F7;color:#101828;position:relative}
+.n:last-child{border-bottom:0}
+.n:hover{color:#101828;background:#F9FAFB}
+.ic{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#F2F4F7;color:#344054}
+.t{font-size:14px;line-height:1.4;font-weight:500;display:block}
+.m{font-size:12px;color:#667085;margin-top:4px;display:block}
+.dot{position:absolute;right:16px;top:18px;width:8px;height:8px;border-radius:4px;background:#16A875}
+svg.i{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+</style>
+
+<style>
+html{background:#E4E7EC}
+body{margin:0;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:32px 16px;box-sizing:border-box;background:#E4E7EC}
+body>.v{border-radius:44px;box-shadow:0 0 0 10px #101828,0 30px 60px rgba(16,24,40,.25)}
+.back-to-index{position:fixed;top:12px;left:12px;font:600 13px Inter,system-ui,sans-serif;background:#fff;color:#101828;border:1px solid #D0D5DD;border-radius:999px;padding:8px 14px;text-decoration:none}
+@media (max-width:440px){body{padding:0;background:#F5F7FA}body>.v{border-radius:0;box-shadow:none}.back-to-index{display:none}}
+</style>
+</head>
+<body>
+<a class="back-to-index" href="../index.html">← All screens</a>
+<main class="v">
+<div aria-hidden="true" class="sb"><span>9:41</span><span style="display: flex; gap: 6px; align-items: center"><svg fill="#101828" height="12" viewbox="0 0 18 12" width="18"><rect height="4" rx="1" width="3" x="0" y="8"></rect><rect height="6.5" rx="1" width="3" x="5" y="5.5"></rect><rect height="9" rx="1" width="3" x="10" y="3"></rect><rect height="12" rx="1" width="3" x="15" y="0"></rect></svg><svg fill="none" height="12" stroke="#101828" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 16 12" width="16"><path d="M1.5 4.5a9.5 9.5 0 0 1 13 0M4 7.3a6 6 0 0 1 8 0"></path><circle cx="8" cy="10" fill="#101828" r="1"></circle></svg><svg fill="none" height="12" viewbox="0 0 26 12" width="26"><rect height="11" opacity=".4" rx="3" stroke="#101828" width="22" x=".5" y=".5"></rect><rect fill="#101828" height="8" rx="1.8" width="17" x="2" y="2"></rect><path d="M24 4v4" opacity=".5" stroke="#101828" stroke-linecap="round" stroke-width="1.5"></path></svg></span></div>
+<div class="hd">
+<a aria-label="Back" class="ib" href="08-home-dashboard.html"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M15 5l-7 7 7 7"></path></svg></a>
+<button style="border: 0; background: transparent; font-size: 14px; font-weight: 600; color: #0E7F57; padding: 12px 0">Mark all as read</button>
+</div>
+<h1 style="padding: 4px 20px 0; font-size: 28px; font-weight: 700; letter-spacing: -0.03em">Notifications</h1>
+<div style="margin-top: 14px; padding: 0 20px; display: flex; gap: 8px; overflow: hidden">
+<button aria-pressed="true" class="chip on">All <span style="background: #16A875; color: #101828; font-size: 11px; font-weight: 700; border-radius: 999px; padding: 1px 7px">3</span></button>
+<button class="chip">Transactions</button>
+<button class="chip">Security</button>
+<button class="chip">Offers</button>
+</div>
+<h2 class="sh">Today</h2>
+<div class="card" style="margin: 0 20px">
+<a class="n" href="12-transaction-details.html"><span class="ic" style="background: #EAF8F1; color: #0E7F57"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M17 7 7 17M16 17H7V8"></path></svg></span><span style="padding-right: 16px"><span class="t">You received ₦45,000.00 from Tunde Bakare</span><span class="m">Transactions · 2 min ago</span></span><span aria-label="Unread" class="dot"></span></a>
+<a class="n" href="37-security-settings.html"><span class="ic" style="background: #FFFAEB; color: #B54708"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path><path d="M12 9v4M12 16v.01"></path></svg></span><span style="padding-right: 16px"><span class="t">New sign-in on MacBook Air · Chrome, Lagos. Wasn’t you? Review now.</span><span class="m">Security · 1 hr ago</span></span><span aria-label="Unread" class="dot"></span></a>
+<a class="n" href="28-savings-goal-details.html"><span class="ic"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><rect height="14" rx="3" width="16" x="4" y="7"></rect><path d="M8 7V5h8v2M12 11v6M9 14h6"></path></svg></span><span style="padding-right: 16px"><span class="t">Your Emergency fund is now 65% funded. Nice momentum.</span><span class="m">Savings · 5 hr ago</span></span><span aria-label="Unread" class="dot"></span></a>
+</div>
+<h2 class="sh">Earlier this week</h2>
+<div class="card" style="margin: 0 20px">
+<a class="n" href="12-transaction-details.html"><span class="ic"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M13 3 5 14h6l-1 7 8-11h-6z"></path></svg></span><span><span class="t" style="font-weight: 400; color: #344054">Ikeja Electric token purchased: ₦15,000.00</span><span class="m">Transactions · Wed</span></span></a>
+<a class="n" href="33-financial-activity-report.html"><span class="ic"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v5h5M9 13h6M9 17h4"></path></svg></span><span><span class="t" style="font-weight: 400; color: #344054">Your September activity report is ready</span><span class="m">Insights · Mon</span></span></a>
+</div>
+<div style="margin: 16px 20px 0; padding: 20px; border: 1.5px dashed #D0D5DD; border-radius: 16px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px">
+<span style="width: 44px; height: 44px; border-radius: 22px; background: #EAF8F1; color: #0E7F57; display: flex; align-items: center; justify-content: center"><svg class="i" height="22" viewbox="0 0 24 24" width="22"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
+<p style="font-size: 15px; font-weight: 600; margin-top: 4px">You’re all caught up</p>
+<p class="mut" style="font-size: 13px">Notifications older than 90 days are cleared.</p>
+</div>
+<div class="hb"></div>
+</main>
+</body>
+</html>

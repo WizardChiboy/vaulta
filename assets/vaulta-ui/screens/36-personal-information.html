@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vaulta — Personal information</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+body{margin:0}
+*{box-sizing:border-box}
+h1,h2,h3,p{margin:0}
+a{color:#0E7F57;text-decoration:none}a:hover{color:#0B6646}
+button,input{font-family:inherit}
+.v{width:393px;height:852px;background:#F5F7FA;font-family:'Inter',system-ui,sans-serif;color:#101828;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.sb{height:50px;flex-shrink:0;padding:16px 26px 0 34px;display:flex;justify-content:space-between;font-size:15px;font-weight:600}
+.hb{position:absolute;bottom:8px;left:129px;width:134px;height:5px;border-radius:3px;background:#101828}
+.hd{height:56px;flex-shrink:0;display:flex;align-items:center;gap:12px;padding:0 20px}
+.ib{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#FFFFFF;border:1px solid #E4E7EC;color:#101828;cursor:pointer;padding:0}
+.card{background:#FFFFFF;border:1px solid #E4E7EC;border-radius:16px}
+.mut{color:#667085}
+.sh{font-size:13px;font-weight:600;color:#667085;margin:16px 20px 8px}
+.kv{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;font-size:14px;border-bottom:1px solid #F2F4F7}
+.kv:last-child{border-bottom:0}
+.kv dt{color:#667085}
+.kv dd{margin:0;font-weight:500;text-align:right;display:flex;align-items:center;gap:6px}
+.sw{width:48px;height:28px;border-radius:14px;border:0;position:relative;padding:0;cursor:pointer;flex-shrink:0;transition:background .15s}
+.sw span{position:absolute;top:3px;width:22px;height:22px;border-radius:11px;background:#FFFFFF;box-shadow:0 1px 2px rgba(16,24,40,0.25);transition:left .15s}
+svg.i{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+</style>
+
+<style>
+html{background:#E4E7EC}
+body{margin:0;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:32px 16px;box-sizing:border-box;background:#E4E7EC}
+body>.v{border-radius:44px;box-shadow:0 0 0 10px #101828,0 30px 60px rgba(16,24,40,.25)}
+.back-to-index{position:fixed;top:12px;left:12px;font:600 13px Inter,system-ui,sans-serif;background:#fff;color:#101828;border:1px solid #D0D5DD;border-radius:999px;padding:8px 14px;text-decoration:none}
+@media (max-width:440px){body{padding:0;background:#F5F7FA}body>.v{border-radius:0;box-shadow:none}.back-to-index{display:none}}
+</style>
+</head>
+<body>
+<a class="back-to-index" href="../index.html">← All screens</a>
+<main class="v">
+<div aria-hidden="true" class="sb"><span>9:41</span><span style="display: flex; gap: 6px; align-items: center"><svg fill="#101828" height="12" viewbox="0 0 18 12" width="18"><rect height="4" rx="1" width="3" x="0" y="8"></rect><rect height="6.5" rx="1" width="3" x="5" y="5.5"></rect><rect height="9" rx="1" width="3" x="10" y="3"></rect><rect height="12" rx="1" width="3" x="15" y="0"></rect></svg><svg fill="none" height="12" stroke="#101828" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 16 12" width="16"><path d="M1.5 4.5a9.5 9.5 0 0 1 13 0M4 7.3a6 6 0 0 1 8 0"></path><circle cx="8" cy="10" fill="#101828" r="1"></circle></svg><svg fill="none" height="12" viewbox="0 0 26 12" width="26"><rect height="11" opacity=".4" rx="3" stroke="#101828" width="22" x=".5" y=".5"></rect><rect fill="#101828" height="8" rx="1.8" width="17" x="2" y="2"></rect><path d="M24 4v4" opacity=".5" stroke="#101828" stroke-linecap="round" stroke-width="1.5"></path></svg></span></div>
+<div class="hd"><a aria-label="Back" class="ib" href="34-profile.html"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M15 5l-7 7 7 7"></path></svg></a></div>
+<h1 style="padding: 4px 20px 0; font-size: 28px; font-weight: 700; letter-spacing: -0.03em">Personal information</h1>
+<div style="margin: 14px 20px 0; padding: 12px 14px; border-radius: 14px; background: #EAF8F1; display: flex; gap: 12px; align-items: flex-start; font-size: 13px; line-height: 1.45; color: #344054">
+<svg class="i" height="20" style="color: #0E7F57" viewbox="0 0 24 24" width="20"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg>
+<span>Your details are encrypted and only used to verify your identity. We never share them without your consent.</span>
+</div>
+<div class="card" style="margin: 12px 20px 0; padding: 12px 16px; display: flex; align-items: center; gap: 12px">
+<svg class="i" height="20" style="color: #344054" viewbox="0 0 24 24" width="20"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+<span id="ss" style="flex: 1; font-size: 15px; font-weight: 500">Show sensitive details</span>
+<button aria-checked="false" aria-labelledby="ss" class="sw" role="switch" style="background: #D0D5DD"><span style="left: 3px"></span></button>
+</div>
+<h2 class="sh">Personal details</h2>
+<dl class="card" style="margin: 0 20px">
+<div class="kv"><dt>Legal name</dt><dd>Adaeze Chioma Okafor</dd></div>
+<div class="kv"><dt>Date of birth</dt><dd>•• ••• 1994</dd></div>
+<div class="kv"><dt>BVN</dt><dd style="font-variant-numeric: tabular-nums">222• •••• •81<svg class="i" height="14" style="color: #98A2B3" viewbox="0 0 24 24" width="14"><rect height="10" rx="2" width="14" x="5" y="11"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg></dd></div>
+<div class="kv"><dt>Address</dt><dd>Lekki, Lagos</dd></div>
+<div class="kv"><dt>Nationality</dt><dd>Nigerian</dd></div>
+</dl>
+<h2 class="sh">Account</h2>
+<dl class="card" style="margin: 0 20px">
+<div class="kv"><dt>Account tier</dt><dd>Tier 3 · ₦5m daily limit</dd></div>
+<div class="kv"><dt>Customer ID</dt><dd>VLT-00482190</dd></div>
+<div class="kv"><dt>Identity check</dt><dd style="color: #067647"><span style="width: 6px; height: 6px; border-radius: 3px; background: #12B76A"></span>Verified · Mar 2024</dd></div>
+</dl>
+<p class="mut" style="margin: 16px 20px 0; font-size: 13px">Something wrong? <a href="#" style="font-weight: 600">Request a correction</a></p>
+<div class="hb"></div>
+</main>
+</body>
+</html>

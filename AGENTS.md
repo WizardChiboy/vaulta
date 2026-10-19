@@ -39,3 +39,10 @@ Docs: https://docs.expo.dev/eas/index.md
 - If `ios/` and `android/` directories do not exist, they are generated (Continuous Native Generation). Never create or edit them by hand — configure native behavior in `app.json` and config plugins.
 - Expo Go only includes its bundled native modules. After adding a library with native code, the app needs a development build: `npx expo run:ios|android` locally, or `eas build --profile development`.
 - Prefer recommended Expo modules over third-party libraries, and check your available skills before adding dependencies. Docs: https://docs.expo.dev/versions/latest/index.md
+
+## VAULTA project rules
+
+- Inputs must never be covered by the keyboard: render screens with inputs inside `<Screen scroll>` (`src/components/layout/Screen.tsx`, built on `react-native-keyboard-controller`). Never use React Native's `KeyboardAvoidingView` (ESLint blocks it) or nest another ScrollView around a form.
+- Use Yarn (`yarn expo install <pkg>` for native packages). Import icons from `@/constants/icons`, colours/spacing from the tokens in `src/constants/tokens.js`.
+- Code is strictly typed (see README › TypeScript). Run `yarn verify` (typecheck + strict type-aware lint + format) before declaring work done; no `any`, no `as` casts or `!` to silence errors, optional props as `prop?: T | undefined`.
+- Design source of truth: `assets/vaulta-ui/screens/*.html`; progress in `docs/IMPLEMENTATION_CHECKLIST.md`.
