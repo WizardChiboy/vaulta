@@ -61,6 +61,14 @@ module.exports = defineConfig([
     },
   },
   {
-    ignores: ['dist/*', '.expo/*', 'android/*', 'ios/*', 'assets/vaulta-ui/*', 'expo-env.d.ts'],
+    ignores: [
+      'dist/*',
+      '.expo/*',
+      'android/*',
+      'ios/*',
+      'assets/vaulta-ui/*',
+      'assets/vaulta-ui-dark/*',
+      'expo-env.d.ts',
+    ],
   },
 ]);

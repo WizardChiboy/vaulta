@@ -33,6 +33,8 @@ export type IconButtonProps = Omit<PressableProps, 'children'> & {
   size?: keyof typeof sizeClasses | undefined;
   /** Fully round instead of the default 12px corner radius. */
   round?: boolean | undefined;
+  /** Overrides the size's default icon size (e.g. the 22px bell on Home). */
+  iconSize?: number | undefined;
   className?: string | undefined;
 };
 
@@ -41,6 +43,7 @@ export function IconButton({
   variant = 'outline',
   size = 'md',
   round = false,
+  iconSize: iconSizeOverride,
   disabled,
   className,
   ...props
@@ -63,7 +66,11 @@ export function IconButton({
       )}
       {...props}
     >
-      <Icon size={iconSize[size]} color={colors[iconColor[variant]]} strokeWidth={ICON_STROKE} />
+      <Icon
+        size={iconSizeOverride ?? iconSize[size]}
+        color={colors[iconColor[variant]]}
+        strokeWidth={ICON_STROKE}
+      />
     </Pressable>
   );
 }

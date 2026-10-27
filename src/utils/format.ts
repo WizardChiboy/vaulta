@@ -2,6 +2,29 @@ export function formatCurrency(amount: number, currency = 'NGN', locale = 'en-NG
   return new Intl.NumberFormat(locale, { style: 'currency', currency }).format(amount);
 }
 
+/** "₦486,250" — whole units, for summaries. */
+export function formatWholeCurrency(amount: number, currency = 'NGN', locale = 'en-NG') {
+  return new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency,
+    maximumFractionDigits: 0,
+  }).format(amount);
+}
+
+/** "₦600k" — thousands, for tight labels. */
+export function formatThousands(amount: number, currency = 'NGN', locale = 'en-NG') {
+  return `${formatWholeCurrency(amount / 1000, currency, locale)}k`;
+}
+
+/** "+₦45,000.00" / "−₦18,450.00" (true minus sign, as in the designs). */
+export function formatSignedCurrency(amount: number, currency = 'NGN', locale = 'en-NG') {
+  return `${amount < 0 ? '−' : '+'}${formatCurrency(Math.abs(amount), currency, locale)}`;
+}
+
+/** "$1,240.50" — US dollars in their own locale, so it isn't shown as "US$". */
+export function formatUsd(amount: number) {
+  return formatCurrency(amount, 'USD', 'en-US');
+}
 /**
  * Splits a formatted amount so the fraction can be styled separately,
  * as in the designs: "₦2,450,800" + ".00" (muted).

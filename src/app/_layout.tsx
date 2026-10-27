@@ -12,7 +12,7 @@ import { Manrope_600SemiBold } from '@expo-google-fonts/manrope/600SemiBold';
 import { Manrope_700Bold } from '@expo-google-fonts/manrope/700Bold';
 
 import { ThemeProvider, useTheme } from '@/components/layout/ThemeProvider';
-import { SessionProvider } from '@/store/session';
+import { SessionProvider, useSession } from '@/store/session';
 
 // Fire-and-forget: rejects harmlessly if the splash is already hidden (e.g. after fast refresh).
 void SplashScreen.preventAutoHideAsync();
@@ -45,11 +45,13 @@ export default function RootLayout() {
 }
 
 /**
- * Only the authentication & onboarding screens (designs 01–07) exist so far.
- * When the signed-in area is added, gate it here with <Stack.Protected guard={!!user}>.
+ * (app) is the signed-in area (designs 08+), only reachable with a session; signed out,
+ * its routes (including `/`) redirect to Welcome. (auth) isn't guarded the other way because "You're all set"
+ * (07) is shown after the account is created.
  */
 function RootNavigator() {
   const { name, colors } = useTheme();
+  const { user } = useSession();
 
   return (
     <>
@@ -60,7 +62,9 @@ function RootNavigator() {
           contentStyle: { backgroundColor: colors.background },
         }}
       >
-        <Stack.Screen name="index" />
+        <Stack.Protected guard={!!user} redirectTo="/welcome">
+          <Stack.Screen name="(app)" />
+        </Stack.Protected>
         <Stack.Screen name="(auth)" />
       </Stack>
     </>

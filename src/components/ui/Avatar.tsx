@@ -8,7 +8,7 @@ import { Text, type TextTone, type TextVariant } from './Text';
 // Sizes and font sizes from the designs (recipient list 40, header 44, transfer 52, profile 80).
 const sizes = {
   sm: { box: 'h-10 w-10', px: 40, variant: 'caption', icon: 18 },
-  md: { box: 'h-11 w-11', px: 44, variant: 'bodySm', icon: 20 },
+  md: { box: 'h-11 w-11', px: 44, variant: 'body', icon: 20 },
   lg: { box: 'h-[52px] w-[52px]', px: 52, variant: 'body', icon: 22 },
   xl: { box: 'h-20 w-20', px: 80, variant: 'h2', icon: 32 },
 } as const satisfies Record<string, { variant: TextVariant } & Record<string, unknown>>;

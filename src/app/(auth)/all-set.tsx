@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Pressable, View } from 'react-native';
+import { router } from 'expo-router';
 
 import { Screen } from '@/components/layout/Screen';
 import { useTheme } from '@/components/layout/ThemeProvider';
@@ -101,13 +102,7 @@ export default function AllSetScreen() {
       <View className="flex-1" />
 
       <View className="gap-md pt-2xl">
-        <Button
-          label="Go to dashboard"
-          fullWidth
-          onPress={() =>
-            showMessage('Account ready', 'This is a demo — the dashboard is the next module.')
-          }
-        />
+        <Button label="Go to dashboard" fullWidth onPress={() => router.replace('/')} />
         <Button
           label="Turn on Face ID"
           variant="secondary"

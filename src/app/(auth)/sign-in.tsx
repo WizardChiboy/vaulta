@@ -10,7 +10,6 @@ import { TextField } from '@/components/forms/TextField';
 import { AuthScreen } from '@/components/layout/AuthScreen';
 import { Button, SegmentedControl, Text, TextLink } from '@/components/ui';
 import { ScanFace } from '@/constants/icons';
-import { showMessage } from '@/lib/notify';
 import { signInSchema, type SignInForm } from '@/lib/schemas/auth';
 import { useSession } from '@/store/session';
 
@@ -24,8 +23,10 @@ const MAX_ATTEMPTS = 3;
 // Demo rule so the design's error state can be seen: passwords under 8 characters are "wrong".
 const isMockPasswordCorrect = (password: string) => password.length >= 8;
 
-function finishSignIn(name: string) {
-  showMessage(`Signed in as ${name}`, 'This is a demo — the dashboard is the next module.');
+// Leave the auth flow behind: Home (08) replaces it, so Back doesn't return to sign-in.
+function finishSignIn() {
+  router.dismissAll();
+  router.replace('/');
 }
 
 // Design 02 — Sign in.
@@ -62,14 +63,14 @@ export default function SignInScreen() {
       return;
     }
     await signIn();
-    finishSignIn('Adaeze');
+    finishSignIn();
   });
 
   const signInWithFaceId = async () => {
     setFaceIdLoading(true);
     await signIn();
     setFaceIdLoading(false);
-    finishSignIn('Adaeze');
+    finishSignIn();
   };
 
   return (
