@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vaulta — Add money to savings</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+body{margin:0}
+*{box-sizing:border-box}
+h1,h2,h3,p{margin:0}
+a{color:#3CCB91;text-decoration:none}a:hover{color:#5FD8A6}
+button,input{font-family:inherit}
+.v{width:393px;height:852px;background:#0B0F17;font-family:'Inter',system-ui,sans-serif;color:#F2F4F7;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.sb{height:50px;flex-shrink:0;padding:16px 26px 0 34px;display:flex;justify-content:space-between;font-size:15px;font-weight:600}
+.hb{position:absolute;bottom:8px;left:129px;width:134px;height:5px;border-radius:3px;background:#e4e7ec}
+.hd{height:56px;flex-shrink:0;display:flex;align-items:center;gap:12px;padding:0 20px}
+.ib{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#161B26;border:1px solid #262E3D;color:#F2F4F7;cursor:pointer;padding:0}
+.card{background:#161B26;border:1px solid #262E3D;border-radius:16px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;height:52px;width:100%;border-radius:14px;font-size:16px;font-weight:600;border:0;cursor:pointer;text-decoration:none}
+.bp{background:#16A875;color:#101828}.bp:hover{background:#13965F;color:#101828}
+.bs{background:#161B26;color:#F2F4F7;border:1px solid #333C4D}.bs:hover{color:#F2F4F7;background:#1D2433}
+.mut{color:#8D96A5}
+.src{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:14px;background:#161B26}
+.rad{width:22px;height:22px;border-radius:11px;flex-shrink:0}
+.kv{display:flex;justify-content:space-between;align-items:center;padding:10px 0;font-size:14px}
+.kv dt{color:#8D96A5}
+.kv dd{margin:0;font-weight:500}
+svg.i{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+</style>
+
+<style>
+html{background:#E4E7EC}
+body{margin:0;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:32px 16px;box-sizing:border-box;background:#E4E7EC}
+body>.v{border-radius:44px;box-shadow:0 0 0 10px #101828,0 30px 60px rgba(16,24,40,.25)}
+.back-to-index{position:fixed;top:12px;left:12px;font:600 13px Inter,system-ui,sans-serif;background:#fff;color:#101828;border:1px solid #D0D5DD;border-radius:999px;padding:8px 14px;text-decoration:none}
+@media (max-width:440px){body{padding:0;background:#F5F7FA}body>.v{border-radius:0;box-shadow:none}.back-to-index{display:none}}
+</style>
+</head>
+<body>
+<a class="back-to-index" href="../index.html">← All screens</a>
+<main class="v">
+<div aria-hidden="true" class="sb"><span>9:41</span><span style="display: flex; gap: 6px; align-items: center"><svg fill="#F2F4F7" height="12" viewbox="0 0 18 12" width="18"><rect height="4" rx="1" width="3" x="0" y="8"></rect><rect height="6.5" rx="1" width="3" x="5" y="5.5"></rect><rect height="9" rx="1" width="3" x="10" y="3"></rect><rect height="12" rx="1" width="3" x="15" y="0"></rect></svg><svg fill="none" height="12" stroke="#F2F4F7" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 16 12" width="16"><path d="M1.5 4.5a9.5 9.5 0 0 1 13 0M4 7.3a6 6 0 0 1 8 0"></path><circle cx="8" cy="10" fill="#F2F4F7" r="1"></circle></svg><svg fill="none" height="12" viewbox="0 0 26 12" width="26"><rect height="11" opacity=".4" rx="3" stroke="#F2F4F7" width="22" x=".5" y=".5"></rect><rect fill="#F2F4F7" height="8" rx="1.8" width="17" x="2" y="2"></rect><path d="M24 4v4" opacity=".5" stroke="#F2F4F7" stroke-linecap="round" stroke-width="1.5"></path></svg></span></div>
+<div class="hd"><a aria-label="Back" class="ib" href="28-savings-goal-details.html"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M15 5l-7 7 7 7"></path></svg></a></div>
+<h1 style="padding: 4px 20px 0; font-size: 28px; font-weight: 700; letter-spacing: -0.03em">Add money</h1>
+<div class="card" style="margin: 16px 20px 0; padding: 12px 14px; display: flex; align-items: center; gap: 12px">
+<span style="width: 40px; height: 40px; border-radius: 12px; background: #10291F; color: #3CCB91; display: flex; align-items: center; justify-content: center"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path></svg></span>
+<span style="flex: 1"><span class="mut" style="display: block; font-size: 12px">To</span><span style="display: block; font-size: 15px; font-weight: 600">Emergency fund · 65%</span></span>
+</div>
+<div style="text-align: center; padding: 24px 0 8px"><p class="mut" style="font-size: 13px">Amount</p><p style="font-size: 40px; font-weight: 700; letter-spacing: -0.03em; margin-top: 4px">₦50,000</p></div>
+<p class="mut" style="margin: 8px 20px 8px; font-size: 13px; font-weight: 600">From</p>
+<div style="margin: 0 20px; display: flex; flex-direction: column; gap: 8px">
+<div class="src" style="border: 2px solid #16A875"><span class="rad" style="border: 6px solid #16A875"></span><span style="flex: 1; font-size: 15px; font-weight: 500">Vaulta Current</span><span class="mut" style="font-size: 14px">₦2,450,800.00</span></div>
+<div class="src" style="border: 1px solid #262E3D"><span class="rad" style="border: 1.5px solid #333C4D"></span><span style="flex: 1; font-size: 15px; font-weight: 500">Dollar Wallet</span><span class="mut" style="font-size: 14px">$1,240.50</span></div>
+</div>
+<div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(0,0,0,0.62)"></div>
+<section aria-labelledby="ct" aria-modal="true" role="dialog" style="position: absolute; left: 0; right: 0; bottom: 0; background: #161B26; border-radius: 24px 24px 0 0; padding: 10px 20px 40px; display: flex; flex-direction: column">
+<span style="width: 40px; height: 5px; border-radius: 3px; background: #3A4354; align-self: center"></span>
+<span style="width: 48px; height: 48px; border-radius: 14px; background: #10291F; color: #3CCB91; display: flex; align-items: center; justify-content: center; margin-top: 18px"><svg class="i" height="24" viewbox="0 0 24 24" width="24"><rect height="14" rx="3" width="16" x="4" y="7"></rect><path d="M8 7V5h8v2M12 11v6M9 14h6"></path></svg></span>
+<h2 id="ct" style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin-top: 14px">Confirm deposit</h2>
+<p class="mut" style="font-size: 14px; margin-top: 4px">Money moves instantly and starts earning today.</p>
+<dl style="margin: 14px 0 0; border-top: 1px solid #1F2633; border-bottom: 1px solid #1F2633; padding: 4px 0">
+<div class="kv"><dt>From</dt><dd>Vaulta Current · •• 4821</dd></div>
+<div class="kv"><dt>To</dt><dd>Emergency fund</dd></div>
+<div class="kv"><dt>Amount</dt><dd style="font-weight: 700">₦50,000.00</dd></div>
+<div class="kv"><dt>New progress</dt><dd style="display: flex; align-items: center; gap: 8px"><span style="width: 64px; height: 6px; border-radius: 3px; background: #10291F; display: inline-block"><span style="display: block; width: 69%; height: 6px; border-radius: 3px; background: #16A875"></span></span>69%</dd></div>
+</dl>
+<div style="display: grid; grid-template-columns: 1fr 2fr; gap: 12px; margin-top: 20px">
+<a class="btn bs" href="28-savings-goal-details.html">Cancel</a>
+<a class="btn bp" href="28-savings-goal-details.html">Confirm ₦50,000</a>
+</div>
+</section>
+<div class="hb"></div>
+</main>
+</body>
+</html>

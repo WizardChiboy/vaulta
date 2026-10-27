@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vaulta — Spending analytics</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+body{margin:0}
+*{box-sizing:border-box}
+h1,h2,h3,p{margin:0}
+a{color:#3CCB91;text-decoration:none}a:hover{color:#5FD8A6}
+button,input{font-family:inherit}
+.v{width:393px;height:852px;background:#0B0F17;font-family:'Inter',system-ui,sans-serif;color:#F2F4F7;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.sb{height:50px;flex-shrink:0;padding:16px 26px 0 34px;display:flex;justify-content:space-between;font-size:15px;font-weight:600}
+.hb{position:absolute;bottom:8px;left:129px;width:134px;height:5px;border-radius:3px;background:#e4e7ec}
+.hd{height:56px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 20px}
+.ib{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#161B26;border:1px solid #262E3D;color:#F2F4F7;cursor:pointer;padding:0}
+.card{background:#161B26;border:1px solid #262E3D;border-radius:16px}
+.mut{color:#8D96A5}
+.lk{display:flex;align-items:center;gap:12px;padding:12px 16px;color:#F2F4F7;border-bottom:1px solid #1F2633}
+.lk:last-child{border-bottom:0}
+.lk:hover{color:#F2F4F7;background:#1D2433}
+.ic{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#1F2633;color:#CDD3DD}
+svg.i{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+</style>
+
+<style>
+html{background:#E4E7EC}
+body{margin:0;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:32px 16px;box-sizing:border-box;background:#E4E7EC}
+body>.v{border-radius:44px;box-shadow:0 0 0 10px #101828,0 30px 60px rgba(16,24,40,.25)}
+.back-to-index{position:fixed;top:12px;left:12px;font:600 13px Inter,system-ui,sans-serif;background:#fff;color:#101828;border:1px solid #D0D5DD;border-radius:999px;padding:8px 14px;text-decoration:none}
+@media (max-width:440px){body{padding:0;background:#F5F7FA}body>.v{border-radius:0;box-shadow:none}.back-to-index{display:none}}
+</style>
+</head>
+<body>
+<a class="back-to-index" href="../index.html">← All screens</a>
+<main class="v">
+<div aria-hidden="true" class="sb"><span>9:41</span><span style="display: flex; gap: 6px; align-items: center"><svg fill="#F2F4F7" height="12" viewbox="0 0 18 12" width="18"><rect height="4" rx="1" width="3" x="0" y="8"></rect><rect height="6.5" rx="1" width="3" x="5" y="5.5"></rect><rect height="9" rx="1" width="3" x="10" y="3"></rect><rect height="12" rx="1" width="3" x="15" y="0"></rect></svg><svg fill="none" height="12" stroke="#F2F4F7" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 16 12" width="16"><path d="M1.5 4.5a9.5 9.5 0 0 1 13 0M4 7.3a6 6 0 0 1 8 0"></path><circle cx="8" cy="10" fill="#F2F4F7" r="1"></circle></svg><svg fill="none" height="12" viewbox="0 0 26 12" width="26"><rect height="11" opacity=".4" rx="3" stroke="#F2F4F7" width="22" x=".5" y=".5"></rect><rect fill="#F2F4F7" height="8" rx="1.8" width="17" x="2" y="2"></rect><path d="M24 4v4" opacity=".5" stroke="#F2F4F7" stroke-linecap="round" stroke-width="1.5"></path></svg></span></div>
+<div class="hd">
+<a aria-label="Back" class="ib" href="08-home-dashboard.html"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M15 5l-7 7 7 7"></path></svg></a>
+<button style="height: 40px; padding: 0 12px; border-radius: 12px; border: 1px solid #262E3D; background: #161B26; display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: #F2F4F7">October 2026<svg class="i" height="16" style="color: #8D96A5" viewbox="0 0 24 24" width="16"><path d="M6 9l6 6 6-6"></path></svg></button>
+</div>
+<h1 style="padding: 4px 20px 0; font-size: 28px; font-weight: 700; letter-spacing: -0.03em">Insights</h1>
+<div style="margin: 14px 20px 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; padding: 4px; background: #1F2633; border-radius: 12px">
+<button style="height: 36px; border: 0; border-radius: 9px; background: transparent; font-size: 14px; font-weight: 500; color: #8D96A5">Week</button>
+<button aria-pressed="true" style="height: 36px; border: 0; border-radius: 9px; background: #2e3646; font-size: 14px; font-weight: 600; color: #F2F4F7; box-shadow: 0 1px 2px rgba(0,0,0,0.39)">Month</button>
+<button style="height: 36px; border: 0; border-radius: 9px; background: transparent; font-size: 14px; font-weight: 500; color: #8D96A5">Year</button>
+</div>
+<div style="margin: 16px 20px 0; display: flex; justify-content: space-between; align-items: flex-end">
+<div><p class="mut" style="font-size: 13px">Spent this month</p><p style="font-size: 28px; font-weight: 700; letter-spacing: -0.025em; margin-top: 2px">₦486,250</p></div>
+<span style="display: flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 600; color: #47CD89; background: #0E2A1C; padding: 5px 10px; border-radius: 999px"><svg class="i" height="14" style="stroke-width: 2.4" viewbox="0 0 24 24" width="14"><path d="M12 5v14M6 13l6 6 6-6"></path></svg>8% vs Sept</span>
+</div>
+<section class="card" style="margin: 14px 20px 0; padding: 14px 12px 10px">
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 0 4px">
+<h2 style="font-size: 15px; font-weight: 600">Income vs expenses</h2>
+<div style="display: flex; gap: 12px; font-size: 12px; color: #A9B1BE">
+<span style="display: flex; align-items: center; gap: 5px"><span style="width: 10px; height: 10px; border-radius: 3px; background: #c3cad5"></span>Income</span>
+<span style="display: flex; align-items: center; gap: 5px"><span style="width: 10px; height: 10px; border-radius: 3px; background: #16A875"></span>Expenses</span>
+</div>
+</div>
+<svg aria-label="Monthly income and expenses, May to October 2026. October: income ₦935k, expenses ₦486k" role="img" style="display: block; margin-top: 10px; font-family: Inter, sans-serif" viewbox="0 0 345 180" width="100%">
+<g stroke="#1F2633" stroke-width="1"><path d="M32 10H340M32 45H340M32 80H340M32 115H340"></path></g>
+<path d="M32 150H340" stroke="#262E3D" stroke-width="1"></path>
+<g fill="#98A2B3" font-size="10" text-anchor="end"><text x="26" y="13">1m</text><text x="26" y="48">750k</text><text x="26" y="83">500k</text><text x="26" y="118">250k</text><text x="26" y="153">0</text></g>
+<g fill="#c3cad5">
+<rect height="123.2" rx="3" width="13" x="42.4" y="26.8"></rect>
+<rect height="123.2" rx="3" width="13" x="93.2" y="26.8"></rect>
+<rect height="127.4" rx="3" width="13" x="144" y="22.6"></rect>
+<rect height="123.9" rx="3" width="13" x="194.8" y="26.1"></rect>
+<rect height="126" rx="3" width="13" x="245.6" y="24"></rect>
+<rect height="130.9" rx="3" width="13" x="296.4" y="19.1"></rect>
+</g>
+<g fill="#16A875">
+<rect height="71.7" rx="3" width="13" x="59.4" y="78.3"></rect>
+<rect height="76.7" rx="3" width="13" x="110.2" y="73.3"></rect>
+<rect height="84.3" rx="3" width="13" x="161" y="65.7"></rect>
+<rect height="65.8" rx="3" width="13" x="211.8" y="84.2"></rect>
+<rect height="73.9" rx="3" width="13" x="262.6" y="76.1"></rect>
+<rect height="68" rx="3" width="13" x="313.4" y="82"></rect>
+</g>
+<g fill="#8D96A5" font-size="11" text-anchor="middle"><text x="57.4" y="168">May</text><text x="108.2" y="168">Jun</text><text x="159" y="168">Jul</text><text x="209.8" y="168">Aug</text><text x="260.6" y="168">Sep</text><text fill="#f2f4f7" font-weight="600" x="311.4" y="168">Oct</text></g>
+</svg>
+</section>
+<div class="card" style="margin: 14px 20px 0">
+<a class="lk" href="31-category-breakdown.html"><span class="ic"><svg class="i" height="18" viewbox="0 0 24 24" width="18"><path d="M21 12A9 9 0 1 1 12 3v9z"></path><path d="M14 3.3A9 9 0 0 1 20.7 10H14z"></path></svg></span><span style="flex: 1"><span style="display: block; font-size: 15px; font-weight: 500">Category breakdown</span><span class="mut" style="display: block; font-size: 12px; margin-top: 2px">Food &amp; dining up 14% this month</span></span><svg class="i" height="18" style="color: #98A2B3" viewbox="0 0 24 24" width="18"><path d="M9 5l7 7-7 7"></path></svg></a>
+<a class="lk" href="32-monthly-budget.html"><span class="ic"><svg class="i" height="18" viewbox="0 0 24 24" width="18"><path d="M4 7h16v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1zM4 7l2-4h12l2 4M10 12h4"></path></svg></span><span style="flex: 1"><span style="display: block; font-size: 15px; font-weight: 500">Monthly budget</span><span class="mut" style="display: block; font-size: 12px; margin-top: 2px">₦113,750 left · 13 days to go</span></span><svg class="i" height="18" style="color: #98A2B3" viewbox="0 0 24 24" width="18"><path d="M9 5l7 7-7 7"></path></svg></a>
+<a class="lk" href="33-financial-activity-report.html"><span class="ic"><svg class="i" height="18" viewbox="0 0 24 24" width="18"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v5h5M9 13h6M9 17h4"></path></svg></span><span style="flex: 1"><span style="display: block; font-size: 15px; font-weight: 500">September report</span><span class="mut" style="display: block; font-size: 12px; margin-top: 2px">You saved 24% of income</span></span><svg class="i" height="18" style="color: #98A2B3" viewbox="0 0 24 24" width="18"><path d="M9 5l7 7-7 7"></path></svg></a>
+</div>
+<div class="hb"></div>
+</main>
+</body>
+</html>

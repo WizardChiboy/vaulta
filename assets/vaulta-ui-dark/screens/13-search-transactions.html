@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vaulta — Search transactions</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+body{margin:0}
+*{box-sizing:border-box}
+h1,h2,h3,p{margin:0}
+a{color:#3CCB91;text-decoration:none}a:hover{color:#5FD8A6}
+button,input{font-family:inherit}
+.v{width:393px;height:852px;background:#0B0F17;font-family:'Inter',system-ui,sans-serif;color:#F2F4F7;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.sb{height:50px;flex-shrink:0;padding:16px 26px 0 34px;display:flex;justify-content:space-between;font-size:15px;font-weight:600}
+.hb{position:absolute;bottom:8px;left:129px;width:134px;height:5px;border-radius:3px;background:#e4e7ec}
+.card{background:#161B26;border:1px solid #262E3D;border-radius:16px}
+.mut{color:#8D96A5}
+.chip{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 12px;border-radius:999px;font-size:14px;font-weight:500;border:1px solid #262E3D;background:#161B26;color:#CDD3DD;cursor:pointer;white-space:nowrap}
+.tx{display:flex;align-items:center;gap:12px;padding:9px 16px;color:#F2F4F7}
+.tx:hover{color:#F2F4F7;background:#1D2433}
+.ic{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#1F2633;color:#CDD3DD}
+.nm{display:block;font-size:15px;font-weight:500}
+.nm b{font-weight:700;background:#10291F;color:#3CCB91;border-radius:3px;padding:0 1px}
+.sub{display:block;font-size:13px;color:#8D96A5;margin-top:2px}
+.amt{margin-left:auto;font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
+.kb{margin-top:auto;background:#10141c;padding:8px 3px 38px;display:flex;flex-direction:column;gap:10px}
+.kr{display:flex;gap:6px;justify-content:center}
+.k{width:33px;height:42px;border-radius:6px;background:#2e3646;box-shadow:0 1px 0 #05070b;display:flex;align-items:center;justify-content:center;font-size:20px;color:#F2F4F7}
+.kd{background:#1f2633}
+svg.i{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+</style>
+
+<style>
+html{background:#E4E7EC}
+body{margin:0;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:32px 16px;box-sizing:border-box;background:#E4E7EC}
+body>.v{border-radius:44px;box-shadow:0 0 0 10px #101828,0 30px 60px rgba(16,24,40,.25)}
+.back-to-index{position:fixed;top:12px;left:12px;font:600 13px Inter,system-ui,sans-serif;background:#fff;color:#101828;border:1px solid #D0D5DD;border-radius:999px;padding:8px 14px;text-decoration:none}
+@media (max-width:440px){body{padding:0;background:#F5F7FA}body>.v{border-radius:0;box-shadow:none}.back-to-index{display:none}}
+</style>
+</head>
+<body>
+<a class="back-to-index" href="../index.html">← All screens</a>
+<main class="v">
+<div aria-hidden="true" class="sb"><span>9:41</span><span style="display: flex; gap: 6px; align-items: center"><svg fill="#F2F4F7" height="12" viewbox="0 0 18 12" width="18"><rect height="4" rx="1" width="3" x="0" y="8"></rect><rect height="6.5" rx="1" width="3" x="5" y="5.5"></rect><rect height="9" rx="1" width="3" x="10" y="3"></rect><rect height="12" rx="1" width="3" x="15" y="0"></rect></svg><svg fill="none" height="12" stroke="#F2F4F7" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 16 12" width="16"><path d="M1.5 4.5a9.5 9.5 0 0 1 13 0M4 7.3a6 6 0 0 1 8 0"></path><circle cx="8" cy="10" fill="#F2F4F7" r="1"></circle></svg><svg fill="none" height="12" viewbox="0 0 26 12" width="26"><rect height="11" opacity=".4" rx="3" stroke="#F2F4F7" width="22" x=".5" y=".5"></rect><rect fill="#F2F4F7" height="8" rx="1.8" width="17" x="2" y="2"></rect><path d="M24 4v4" opacity=".5" stroke="#F2F4F7" stroke-linecap="round" stroke-width="1.5"></path></svg></span></div>
+<div style="padding: 6px 20px 0; display: flex; align-items: center; gap: 12px">
+<div style="flex: 1; position: relative">
+<label for="q" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Search transactions</label>
+<svg class="i" height="20" style="position: absolute; left: 14px; top: 14px; color: #8D96A5" viewbox="0 0 24 24" width="20"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+<input id="q" style="width: 100%; height: 48px; border-radius: 12px; border: 2px solid #16A875; background: #161B26; padding: 0 44px; font-size: 16px; color: #F2F4F7; outline: none" type="search" value="bolt"/>
+<button aria-label="Clear search" style="position: absolute; right: 4px; top: 4px; width: 40px; height: 40px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; color: #98A2B3"><svg aria-hidden="true" height="18" viewbox="0 0 24 24" width="18"><circle cx="12" cy="12" fill="#3A4354" r="10"></circle><path d="M9 9l6 6M15 9l-6 6" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2"></path></svg></button>
+</div>
+<a href="11-transaction-history.html" style="font-size: 15px; font-weight: 600; padding: 12px 0">Cancel</a>
+</div>
+<div style="padding: 18px 20px 0">
+<div style="display: flex; justify-content: space-between; align-items: center"><h2 style="font-size: 13px; font-weight: 600; color: #8D96A5">Recent searches</h2><button style="border: 0; background: transparent; font-size: 13px; font-weight: 600; color: #3CCB91; padding: 6px 0">Clear</button></div>
+<div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap">
+<button class="chip"><svg class="i" height="14" style="color: #98A2B3" viewbox="0 0 24 24" width="14"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Netflix</button>
+<button class="chip"><svg class="i" height="14" style="color: #98A2B3" viewbox="0 0 24 24" width="14"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Ikeja Electric</button>
+<button class="chip"><svg class="i" height="14" style="color: #98A2B3" viewbox="0 0 24 24" width="14"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Tunde</button>
+</div>
+</div>
+<h2 style="margin: 20px 20px 8px; font-size: 13px; font-weight: 600; color: #8D96A5">3 results for “bolt”</h2>
+<div class="card" style="margin: 0 20px; padding: 3px 0">
+<a class="tx" href="12-transaction-details.html"><span class="ic"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M5 16h14v-4l-2-5H7l-2 5zM5 16v3M19 16v3M8 13h.01M16 13h.01"></path></svg></span><span><span class="nm"><b>Bolt</b> Ride</span><span class="sub">Transport · 17 Oct</span></span><span class="amt">−₦3,200.00</span></a>
+<a class="tx" href="12-transaction-details.html"><span class="ic"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M5 16h14v-4l-2-5H7l-2 5zM5 16v3M19 16v3M8 13h.01M16 13h.01"></path></svg></span><span><span class="nm"><b>Bolt</b> Ride</span><span class="sub">Transport · 12 Oct</span></span><span class="amt">−₦4,850.00</span></a>
+<a class="tx" href="12-transaction-details.html"><span class="ic"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M17 3c-2 0-3 2-3 5s1 4 3 4v9"></path></svg></span><span><span class="nm"><b>Bolt</b> Food</span><span class="sub">Food &amp; dining · 9 Oct</span></span><span class="amt">−₦7,300.00</span></a>
+</div>
+<div aria-hidden="true" class="kb">
+<div class="kr"><span class="k">q</span><span class="k">w</span><span class="k">e</span><span class="k">r</span><span class="k">t</span><span class="k">y</span><span class="k">u</span><span class="k">i</span><span class="k">o</span><span class="k">p</span></div>
+<div class="kr"><span class="k">a</span><span class="k">s</span><span class="k">d</span><span class="k">f</span><span class="k">g</span><span class="k">h</span><span class="k">j</span><span class="k">k</span><span class="k">l</span></div>
+<div class="kr"><span class="k kd" style="width: 44px"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M12 4 4 12h4v7h8v-7h4z"></path></svg></span><span style="width: 6px"></span><span class="k">z</span><span class="k">x</span><span class="k">c</span><span class="k">v</span><span class="k">b</span><span class="k">n</span><span class="k">m</span><span style="width: 6px"></span><span class="k kd" style="width: 44px"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M21 5H9l-6 7 6 7h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1zM12 9l6 6M18 9l-6 6"></path></svg></span></div>
+<div class="kr"><span class="k kd" style="width: 88px; font-size: 16px">123</span><span class="k" style="width: 186px; font-size: 16px">space</span><span class="k" style="width: 88px; font-size: 16px; background: #16A875; box-shadow: none; font-weight: 600">search</span></div>
+</div>
+<div class="hb"></div>
+</main>
+</body>
+</html>

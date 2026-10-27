@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vaulta — Verify phone</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+body{margin:0}
+*{box-sizing:border-box}
+h1,h2,h3,p{margin:0}
+a{color:#3CCB91;text-decoration:none}a:hover{color:#5FD8A6}
+button,input{font-family:inherit}
+.v{width:393px;height:852px;background:#0B0F17;font-family:'Inter',system-ui,sans-serif;color:#F2F4F7;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.sb{height:50px;flex-shrink:0;padding:16px 26px 0 34px;display:flex;justify-content:space-between;font-size:15px;font-weight:600}
+.hb{position:absolute;bottom:8px;left:129px;width:134px;height:5px;border-radius:3px;background:#e4e7ec}
+.hd{height:56px;flex-shrink:0;display:flex;align-items:center;gap:12px;padding:0 20px}
+.ib{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#161B26;border:1px solid #262E3D;color:#F2F4F7;cursor:pointer;padding:0}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;height:52px;width:100%;border-radius:14px;font-size:16px;font-weight:600;border:0;cursor:pointer;text-decoration:none}
+.bd{background:#262E3D;color:#8D96A5;cursor:not-allowed}
+.otp{width:48px;height:58px;border:1px solid #333C4D;border-radius:12px;text-align:center;font-size:24px;font-weight:600;color:#F2F4F7;background:#161B26;outline:none;padding:0}
+.k{height:48px;border:0;border-radius:10px;background:#2e3646;font-size:24px;font-weight:500;color:#F2F4F7;box-shadow:0 1px 0 #05070b;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+.k small{font-size:9px;font-weight:600;letter-spacing:.14em;color:#A9B1BE;margin-top:2px}
+.mut{color:#8D96A5}
+svg.i{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+</style>
+
+<style>
+html{background:#E4E7EC}
+body{margin:0;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:32px 16px;box-sizing:border-box;background:#E4E7EC}
+body>.v{border-radius:44px;box-shadow:0 0 0 10px #101828,0 30px 60px rgba(16,24,40,.25)}
+.back-to-index{position:fixed;top:12px;left:12px;font:600 13px Inter,system-ui,sans-serif;background:#fff;color:#101828;border:1px solid #D0D5DD;border-radius:999px;padding:8px 14px;text-decoration:none}
+@media (max-width:440px){body{padding:0;background:#F5F7FA}body>.v{border-radius:0;box-shadow:none}.back-to-index{display:none}}
+</style>
+</head>
+<body>
+<a class="back-to-index" href="../index.html">← All screens</a>
+<main class="v">
+<div aria-hidden="true" class="sb"><span>9:41</span><span style="display: flex; gap: 6px; align-items: center"><svg fill="#F2F4F7" height="12" viewbox="0 0 18 12" width="18"><rect height="4" rx="1" width="3" x="0" y="8"></rect><rect height="6.5" rx="1" width="3" x="5" y="5.5"></rect><rect height="9" rx="1" width="3" x="10" y="3"></rect><rect height="12" rx="1" width="3" x="15" y="0"></rect></svg><svg fill="none" height="12" stroke="#F2F4F7" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 16 12" width="16"><path d="M1.5 4.5a9.5 9.5 0 0 1 13 0M4 7.3a6 6 0 0 1 8 0"></path><circle cx="8" cy="10" fill="#F2F4F7" r="1"></circle></svg><svg fill="none" height="12" viewbox="0 0 26 12" width="26"><rect height="11" opacity=".4" rx="3" stroke="#F2F4F7" width="22" x=".5" y=".5"></rect><rect fill="#F2F4F7" height="8" rx="1.8" width="17" x="2" y="2"></rect><path d="M24 4v4" opacity=".5" stroke="#F2F4F7" stroke-linecap="round" stroke-width="1.5"></path></svg></span></div>
+<div class="hd" style="justify-content: space-between">
+<a aria-label="Back" class="ib" href="03-sign-up.html"><svg class="i" height="20" viewbox="0 0 24 24" width="20"><path d="M15 5l-7 7 7 7"></path></svg></a>
+<span style="font-size: 13px; font-weight: 600; color: #8D96A5">Step 2 of 2</span>
+</div>
+<div style="padding: 8px 24px 0; display: flex; flex-direction: column; gap: 8px">
+<div style="width: 52px; height: 52px; border-radius: 16px; background: #10291F; color: #3CCB91; display: flex; align-items: center; justify-content: center; margin-bottom: 8px"><svg class="i" height="26" viewbox="0 0 24 24" width="26"><rect height="18" rx="2.5" width="10" x="7" y="3"></rect><path d="M11 18h2"></path></svg></div>
+<h1 style="font-size: 28px; font-weight: 700; letter-spacing: -0.03em">Verify your phone</h1>
+<p class="mut" style="font-size: 15px; line-height: 1.5">Enter the 6-digit code we sent to <strong style="color: #F2F4F7; font-weight: 600">+234 803 ••• 4417</strong>.</p>
+</div>
+<fieldset style="border: 0; margin: 24px 24px 0; padding: 0; display: flex; justify-content: space-between">
+<legend style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">One-time code</legend>
+<input aria-label="Digit 1" class="otp" value="4"/>
+<input aria-label="Digit 2" class="otp" value="8"/>
+<input aria-label="Digit 3" class="otp" value="2"/>
+<input aria-label="Digit 4" class="otp" value="1"/>
+<input aria-label="Digit 5" class="otp" style="border: 2px solid #16A875; box-shadow: 0 0 0 4px #10291F" value=""/>
+<input aria-label="Digit 6" class="otp" value=""/>
+</fieldset>
+<div style="padding: 16px 24px 0; display: flex; justify-content: space-between; align-items: center; font-size: 14px">
+<span class="mut">Didn’t get it? Resend in <strong style="color: #F2F4F7; font-variant-numeric: tabular-nums">00:42</strong></span>
+<a href="03-sign-up.html" style="font-weight: 600; padding: 12px 0">Change number</a>
+</div>
+<div style="padding: 12px 24px 0"><button class="btn bd" disabled="">Verify</button></div>
+<div aria-hidden="true" style="margin-top: auto; background: #10141c; padding: 8px 6px 40px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px">
+<div class="k">1<small> </small></div><div class="k">2<small>ABC</small></div><div class="k">3<small>DEF</small></div>
+<div class="k">4<small>GHI</small></div><div class="k">5<small>JKL</small></div><div class="k">6<small>MNO</small></div>
+<div class="k">7<small>PQRS</small></div><div class="k">8<small>TUV</small></div><div class="k">9<small>WXYZ</small></div>
+<div></div><div class="k">0</div><div class="k" style="background: transparent; box-shadow: none"><svg class="i" height="24" viewbox="0 0 24 24" width="24"><path d="M21 5H9l-6 7 6 7h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1zM12 9l6 6M18 9l-6 6"></path></svg></div>
+</div>
+<div class="hb"></div>
+</main>
+</body>
+</html>
