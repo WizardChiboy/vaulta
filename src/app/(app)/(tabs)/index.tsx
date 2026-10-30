@@ -172,7 +172,7 @@ export default function HomeScreen() {
         <Text variant="h3" accessibilityRole="header">
           Recent transactions
         </Text>
-        <TextLink onPress={() => comingSoon('Transactions')}>See all</TextLink>
+        <TextLink onPress={() => router.push('/transactions')}>See all</TextLink>
       </View>
 
       <Card padded={false} className="mt-2.5 overflow-hidden py-1">

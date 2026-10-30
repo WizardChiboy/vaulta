@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import { useLocalSearchParams } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 
 import { Screen } from '@/components/layout/Screen';
 import { ScreenHeader } from '@/components/layout/ScreenHeader';
@@ -161,7 +161,7 @@ export default function AccountDetailsScreen() {
           Recent activity
         </Text>
         {activity.length > 0 && (
-          <TextLink onPress={() => comingSoon('Transactions')}>See all</TextLink>
+          <TextLink onPress={() => router.push('/transactions')}>See all</TextLink>
         )}
       </View>
       <Card padded={false} className="overflow-hidden py-1">
