@@ -65,6 +65,7 @@ Legend: ✅ done · 🟡 partly done · ⬜ not started
 | `Loader`            | `components/ui/Loader.tsx`              | inline / full screen                                                                        |
 | `Screen`            | `components/layout/Screen.tsx`          | safe area, scroll, keyboard, background                                                     |
 | `ScreenHeader`      | `components/layout/ScreenHeader.tsx`    | back button, centred title, right action, large title                                       |
+| `CopyButton`        | `components/ui/CopyButton.tsx`          | 28px green copy icon, tick on press (simulated)                                             |
 
 ### To build (found in the audit)
 
@@ -81,7 +82,7 @@ Legend: ✅ done · 🟡 partly done · ⬜ not started
 | ⬜ `DateField`                            | 14 27                     | From/To pickers — decide: native picker module vs custom sheet                                       |
 | ⬜ `PaymentCard` (visual card)            | 01 23 24                  | Green card art, masked number, flip/reveal                                                           |
 | ⬜ Charts: bar, donut, line               | 23 25 27 30 31 33         | `react-native-svg` is installed; build simple SVG charts rather than adding a chart library          |
-| ⬜ `KeyValueList` (`.kv`)                 | 12 20 29                  | Label left / value right, dividers                                                                   |
+| ✅ `KeyValueList` (`.kv`)                 | 10 12 20 29               | Built: `components/ui/KeyValueList.tsx`                                                              |
 | ⬜ `EmptyState` / `Toast` (copy feedback) | 07 08 12 21 24            | "Copied" confirmation                                                                                |
 
 ## 4. Navigation
@@ -103,47 +104,47 @@ Tabs, a modal and a formSheet were prototyped and verified on web earlier, then 
 
 Routes are relative to `src/app/`. `(app)` screens will require a session.
 
-| #   | Screen                   | Route                                            | Presentation                     | Status                                                                        |
-| --- | ------------------------ | ------------------------------------------------ | -------------------------------- | ----------------------------------------------------------------------------- |
-| 01  | Welcome                  | `(auth)/welcome`                                 | stack root, navy                 | ✅                                                                            |
-| 02  | Sign in                  | `(auth)/sign-in`                                 | push                             | ✅ email/phone tabs, validation, wrong-password attempts, Face ID (simulated) |
-| 03  | Create account           | `(auth)/sign-up`                                 | push                             | ✅ validation, strength meter, terms; +234 only                               |
-| 04  | Verify phone             | `(auth)/verify-phone`                            | push                             | ✅ OTP, resend countdown; any 6-digit code passes                             |
-| 05  | Forgot password          | `(auth)/forgot-password`                         | push                             | ✅                                                                            |
-| 06  | Reset password           | `(auth)/reset-password`                          | push                             | ✅ live rules checklist, match check                                          |
-| 07  | You’re all set           | `(auth)/all-set`                                 | replace, no back gesture         | ✅ copy simulated; dashboard / Face ID / card show a message                  |
-| 08  | Home                     | `(app)/(tabs)/index`                             | tab                              | ✅ hide balance, copy (simulated); unbuilt destinations show a message        |
-| 09  | Accounts                 | `(app)/accounts/index`                           | push                             | ✅ totals computed from mock accounts; actions show a message                 |
-| 10  | Account details          | `(app)/accounts/[id]`                            | push                             | ⬜ more-options menu                                                          |
-| 11  | Transactions             | `(app)/transactions/index`                       | push                             | ⬜ chips, grouped list, load more                                             |
-| 12  | Transaction details      | `(app)/transactions/[id]`                        | push                             | ⬜ share, receipt, copy ref                                                   |
-| 13  | Search transactions      | `(app)/transactions/search`                      | modal                            | ⬜                                                                            |
-| 14  | Filter transactions      | `(app)/transactions/filter`                      | formSheet 0.9                    | ⬜                                                                            |
-| 15  | Notifications            | `(app)/notifications`                            | push                             | ⬜                                                                            |
-| 16  | Transfer                 | `(app)/(tabs)/transfer`                          | tab                              | ⬜                                                                            |
-| 17  | Select recipient         | `(app)/transfers/recipient`                      | push                             | ⬜                                                                            |
-| 18  | Add recipient            | `(app)/transfers/add-recipient`                  | push                             | ⬜ bank picker, account lookup                                                |
-| 19  | Enter amount             | `(app)/transfers/amount`                         | push                             | ⬜ NumberPad, quick-amount chips                                              |
-| 20  | Review transfer          | `(app)/transfers/review`                         | push                             | ⬜                                                                            |
-| 21  | Transfer successful      | `(app)/transfers/success`                        | replace, no back gesture         | ⬜                                                                            |
-| 22  | Transfer history         | `(app)/transfers/history`                        | push                             | ⬜                                                                            |
-| 23  | Cards                    | `(app)/cards/index`                              | push                             | ⬜                                                                            |
-| 24  | Card details             | `(app)/cards/[id]`                               | push                             | ⬜ reveal number (mock only)                                                  |
-| 25  | Card controls            | `(app)/cards/[id]/controls`                      | push                             | ⬜ switches, limit                                                            |
-| 26  | Savings                  | `(app)/(tabs)/savings`                           | tab                              | ⬜                                                                            |
-| 27  | New savings goal         | `(app)/goals/new`                                | push                             | ⬜ icon picker, auto-save                                                     |
-| 28  | Goal details             | `(app)/goals/[id]`                               | push                             | ⬜                                                                            |
-| 29  | Add money to savings     | `(app)/goals/[id]/add-money` + `confirm-deposit` | push + formSheet (fitToContents) | ⬜                                                                            |
-| 30  | Spending analytics       | `(app)/insights/index`                           | push                             | ⬜ bar chart                                                                  |
-| 31  | Category breakdown       | `(app)/insights/categories`                      | push                             | ⬜ donut                                                                      |
-| 32  | Monthly budget           | `(app)/insights/budget`                          | push                             | ⬜                                                                            |
-| 33  | Monthly report           | `(app)/insights/report`                          | push                             | ⬜ share / PDF (simulated)                                                    |
-| 34  | Profile                  | `(app)/(tabs)/profile`                           | tab                              | ⬜                                                                            |
-| 35  | Edit profile             | `(app)/settings/edit-profile`                    | push                             | ⬜                                                                            |
-| 36  | Personal information     | `(app)/settings/personal`                        | push                             | ⬜                                                                            |
-| 37  | Security                 | `(app)/settings/security`                        | push                             | ⬜                                                                            |
-| 38  | Notification preferences | `(app)/settings/notifications`                   | push                             | ⬜                                                                            |
-| 39  | Appearance               | `(app)/settings/appearance`                      | push                             | ⬜ wire to `ThemeProvider`                                                    |
+| #   | Screen                   | Route                                            | Presentation                     | Status                                                                                       |
+| --- | ------------------------ | ------------------------------------------------ | -------------------------------- | -------------------------------------------------------------------------------------------- |
+| 01  | Welcome                  | `(auth)/welcome`                                 | stack root, navy                 | ✅                                                                                           |
+| 02  | Sign in                  | `(auth)/sign-in`                                 | push                             | ✅ email/phone tabs, validation, wrong-password attempts, Face ID (simulated)                |
+| 03  | Create account           | `(auth)/sign-up`                                 | push                             | ✅ validation, strength meter, terms; +234 only                                              |
+| 04  | Verify phone             | `(auth)/verify-phone`                            | push                             | ✅ OTP, resend countdown; any 6-digit code passes                                            |
+| 05  | Forgot password          | `(auth)/forgot-password`                         | push                             | ✅                                                                                           |
+| 06  | Reset password           | `(auth)/reset-password`                          | push                             | ✅ live rules checklist, match check                                                         |
+| 07  | You’re all set           | `(auth)/all-set`                                 | replace, no back gesture         | ✅ copy simulated; dashboard / Face ID / card show a message                                 |
+| 08  | Home                     | `(app)/(tabs)/index`                             | tab                              | ✅ hide balance, copy (simulated); unbuilt destinations show a message                       |
+| 09  | Accounts                 | `(app)/accounts/index`                           | push                             | ✅ totals computed from mock accounts; actions show a message                                |
+| 10  | Account details          | `(app)/accounts/[id]`                            | push                             | ✅ ledger balance from pending holds; copy (simulated); more options, actions show a message |
+| 11  | Transactions             | `(app)/transactions/index`                       | push                             | ⬜ chips, grouped list, load more                                                            |
+| 12  | Transaction details      | `(app)/transactions/[id]`                        | push                             | ⬜ share, receipt, copy ref                                                                  |
+| 13  | Search transactions      | `(app)/transactions/search`                      | modal                            | ⬜                                                                                           |
+| 14  | Filter transactions      | `(app)/transactions/filter`                      | formSheet 0.9                    | ⬜                                                                                           |
+| 15  | Notifications            | `(app)/notifications`                            | push                             | ⬜                                                                                           |
+| 16  | Transfer                 | `(app)/(tabs)/transfer`                          | tab                              | ⬜                                                                                           |
+| 17  | Select recipient         | `(app)/transfers/recipient`                      | push                             | ⬜                                                                                           |
+| 18  | Add recipient            | `(app)/transfers/add-recipient`                  | push                             | ⬜ bank picker, account lookup                                                               |
+| 19  | Enter amount             | `(app)/transfers/amount`                         | push                             | ⬜ NumberPad, quick-amount chips                                                             |
+| 20  | Review transfer          | `(app)/transfers/review`                         | push                             | ⬜                                                                                           |
+| 21  | Transfer successful      | `(app)/transfers/success`                        | replace, no back gesture         | ⬜                                                                                           |
+| 22  | Transfer history         | `(app)/transfers/history`                        | push                             | ⬜                                                                                           |
+| 23  | Cards                    | `(app)/cards/index`                              | push                             | ⬜                                                                                           |
+| 24  | Card details             | `(app)/cards/[id]`                               | push                             | ⬜ reveal number (mock only)                                                                 |
+| 25  | Card controls            | `(app)/cards/[id]/controls`                      | push                             | ⬜ switches, limit                                                                           |
+| 26  | Savings                  | `(app)/(tabs)/savings`                           | tab                              | ⬜                                                                                           |
+| 27  | New savings goal         | `(app)/goals/new`                                | push                             | ⬜ icon picker, auto-save                                                                    |
+| 28  | Goal details             | `(app)/goals/[id]`                               | push                             | ⬜                                                                                           |
+| 29  | Add money to savings     | `(app)/goals/[id]/add-money` + `confirm-deposit` | push + formSheet (fitToContents) | ⬜                                                                                           |
+| 30  | Spending analytics       | `(app)/insights/index`                           | push                             | ⬜ bar chart                                                                                 |
+| 31  | Category breakdown       | `(app)/insights/categories`                      | push                             | ⬜ donut                                                                                     |
+| 32  | Monthly budget           | `(app)/insights/budget`                          | push                             | ⬜                                                                                           |
+| 33  | Monthly report           | `(app)/insights/report`                          | push                             | ⬜ share / PDF (simulated)                                                                   |
+| 34  | Profile                  | `(app)/(tabs)/profile`                           | tab                              | ⬜                                                                                           |
+| 35  | Edit profile             | `(app)/settings/edit-profile`                    | push                             | ⬜                                                                                           |
+| 36  | Personal information     | `(app)/settings/personal`                        | push                             | ⬜                                                                                           |
+| 37  | Security                 | `(app)/settings/security`                        | push                             | ⬜                                                                                           |
+| 38  | Notification preferences | `(app)/settings/notifications`                   | push                             | ⬜                                                                                           |
+| 39  | Appearance               | `(app)/settings/appearance`                      | push                             | ⬜ wire to `ThemeProvider`                                                                   |
 
 Stack folders are `transfers/`, `goals/` and `settings/` (not `transfer/`, `savings/`, `profile/`) so they don't share a path with the tab routes.
 

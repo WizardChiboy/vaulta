@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { Pressable, View } from 'react-native';
+import { router } from 'expo-router';
 
 import { Screen } from '@/components/layout/Screen';
 import { ScreenHeader } from '@/components/layout/ScreenHeader';
@@ -122,7 +123,12 @@ function AccountCard({ account }: { account: Account }) {
               onPress={() => comingSoon('Transfer')}
             />
             <AccountAction label="Add money" icon={Plus} onPress={() => comingSoon('Add money')} />
-            <AccountAction label="Details" onPress={() => comingSoon('Account details')} />
+            <AccountAction
+              label="Details"
+              onPress={() =>
+                router.push({ pathname: '/accounts/[id]', params: { id: account.id } })
+              }
+            />
           </View>
         </AccountCardFrame>
       );

@@ -12,7 +12,14 @@ type AccountBase = {
   id: string;
   name: string;
   currency: 'NGN' | 'USD';
+  /** Available balance; pending holds are already taken off. */
   balance: number;
+  /** e.g. "Vaulta MFB (demo)" */
+  bank: string;
+  /** e.g. "Current · Tier 3" */
+  typeLabel: string;
+  /** ISO 8601 date the account was opened. */
+  openedOn: string;
 };
 
 export type CurrentAccount = AccountBase & {

@@ -48,6 +48,61 @@ export function maskPhone(countryCode: string, phone: string) {
   return `${countryCode} ${digits.slice(0, 3)} ••• ${digits.slice(-4)}`;
 }
 
+// Built by hand rather than with Intl.DateTimeFormat so the output is the same on every
+// engine (e.g. "Sun, 18 Oct" — en-GB on some engines drops the comma).
+const WEEKDAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+function startOfDay(date: Date) {
+  return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+}
+
+/** Whole calendar days from `date` to `now` (0 = today, 1 = yesterday). */
+function daysBefore(date: Date, now: Date) {
+  return Math.round((startOfDay(now).getTime() - startOfDay(date).getTime()) / 86_400_000);
+}
+
+/** "10:24" */
+export function formatTime(iso: string) {
+  const date = new Date(iso);
+  return `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
+}
+
+/** "15 Oct" */
+export function formatDayMonth(iso: string) {
+  const date = new Date(iso);
+  return `${date.getDate()} ${MONTHS[date.getMonth()] ?? ''}`;
+}
+
+/** "Sun, 18 Oct" */
+export function formatShortDate(iso: string) {
+  const weekday = (WEEKDAYS[new Date(iso).getDay()] ?? '').slice(0, 3);
+  return `${weekday}, ${formatDayMonth(iso)}`;
+}
+
+/** "12 Mar 2024" */
+export function formatDate(iso: string) {
+  return `${formatDayMonth(iso)} ${new Date(iso).getFullYear()}`;
+}
+
+/** "Today" · "Yesterday" · "Thursday" (this week) · "Sun, 4 Oct" (older). */
+export function formatDayLabel(iso: string, now = new Date()) {
+  const date = new Date(iso);
+  const days = daysBefore(date, now);
+  if (days === 0) return 'Today';
+  if (days === 1) return 'Yesterday';
+  if (days > 1 && days < 7) return WEEKDAYS[date.getDay()] ?? formatShortDate(iso);
+  return formatShortDate(iso);
+}
+
+/** Short time for list rows: "10:24" today, "Yesterday", then "15 Oct". */
+export function formatRelativeTime(iso: string, now = new Date()) {
+  const days = daysBefore(new Date(iso), now);
+  if (days === 0) return formatTime(iso);
+  if (days === 1) return 'Yesterday';
+  return formatDayMonth(iso);
+}
+
 /** "Adaeze Okafor" → "Adaeze" */
 export function firstName(fullName: string) {
   return fullName.trim().split(/\s+/)[0] ?? '';

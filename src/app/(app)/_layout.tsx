@@ -12,6 +12,7 @@ export default function AppLayout() {
     >
       <Stack.Screen name="(tabs)" />
       <Stack.Screen name="accounts/index" />
+      <Stack.Screen name="accounts/[id]" />
     </Stack>
   );
 }

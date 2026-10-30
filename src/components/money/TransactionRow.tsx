@@ -8,48 +8,54 @@ import {
   Car,
   ICON_STROKE,
   ShoppingCart,
+  Utensils,
+  Zap,
   type LucideIcon,
 } from '@/constants/icons';
 import { cn } from '@/lib/cn';
 import type { Transaction, TransactionCategory } from '@/types/transaction';
-import { formatSignedCurrency } from '@/utils/format';
+import { formatRelativeTime, formatSignedCurrency } from '@/utils/format';
 
 // Transfers point in or out depending on the direction of the money.
-const icons: Record<
-  Exclude<TransactionCategory, 'transfer'> | 'transfer-in' | 'transfer-out',
-  LucideIcon
-> = {
+type TransactionIconKey = Exclude<TransactionCategory, 'transfer'> | 'transfer-in' | 'transfer-out';
+
+/** Category tile icons, shared with the larger tile on Transaction details (12). */
+export const transactionIcons: Record<TransactionIconKey, LucideIcon> = {
   groceries: ShoppingCart,
   transport: Car,
+  food: Utensils,
+  bills: Zap,
+  salary: ArrowDownLeft,
   'transfer-in': ArrowDownLeft,
   'transfer-out': ArrowUpRight,
 };
 
+export function transactionIconKey(transaction: Transaction): TransactionIconKey {
+  if (transaction.category !== 'transfer') return transaction.category;
+  return transaction.amount > 0 ? 'transfer-in' : 'transfer-out';
+}
+
 export type TransactionRowProps = {
   transaction: Transaction;
+  /** Replaces the default "Category · time" line, e.g. "Today · 10:24" (10). */
+  meta?: string | undefined;
   onPress: () => void;
   className?: string | undefined;
 };
 
 /** Design .tx: 40px category tile, name + meta, amount on the right. Money in is green. */
-export function TransactionRow({ transaction, onPress, className }: TransactionRowProps) {
+export function TransactionRow({ transaction, meta, onPress, className }: TransactionRowProps) {
   const { colors } = useTheme();
   const incoming = transaction.amount > 0;
-  const Icon =
-    icons[
-      transaction.category === 'transfer'
-        ? incoming
-          ? 'transfer-in'
-          : 'transfer-out'
-        : transaction.category
-    ];
+  const Icon = transactionIcons[transactionIconKey(transaction)];
   const amount = formatSignedCurrency(transaction.amount);
-  const meta = `${transaction.categoryLabel} · ${transaction.when}`;
+  const subtitle =
+    meta ?? `${transaction.categoryLabel} · ${formatRelativeTime(transaction.occurredAt)}`;
 
   return (
     <Pressable
       accessibilityRole="button"
-      accessibilityLabel={`${transaction.title}, ${meta}, ${amount}`}
+      accessibilityLabel={`${transaction.title}, ${subtitle}, ${amount}`}
       onPress={onPress}
       className={cn('flex-row items-center gap-md px-lg py-2.5 active:bg-surface-hover', className)}
     >
@@ -66,7 +72,7 @@ export function TransactionRow({ transaction, onPress, className }: TransactionR
           {transaction.title}
         </Text>
         <Text variant="caption" tone="muted" numberOfLines={1} className="mt-0.5">
-          {meta}
+          {subtitle}
         </Text>
       </View>
       <Text

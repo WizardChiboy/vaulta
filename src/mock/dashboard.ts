@@ -1,4 +1,4 @@
-import type { Transaction } from '@/types/transaction';
+import { transactions } from './transactions';
 
 // Fictional figures from the Home design (08).
 export const dashboard = {
@@ -18,29 +18,7 @@ export const dashboard = {
   },
 };
 
-export const recentTransactions: Transaction[] = [
-  {
-    id: 'txn_demo_001',
-    title: 'Shoprite Lekki',
-    category: 'groceries',
-    categoryLabel: 'Groceries',
-    when: '10:24',
-    amount: -18450,
-  },
-  {
-    id: 'txn_demo_002',
-    title: 'Tunde Bakare',
-    category: 'transfer',
-    categoryLabel: 'Transfer in',
-    when: '08:02',
-    amount: 45000,
-  },
-  {
-    id: 'txn_demo_003',
-    title: 'Bolt Ride',
-    category: 'transport',
-    categoryLabel: 'Transport',
-    when: 'Yesterday',
-    amount: -3200,
-  },
-];
+/** Latest settled activity for Home; pending holds are listed on Transactions (11). */
+export const recentTransactions = transactions
+  .filter((transaction) => transaction.status === 'successful')
+  .slice(0, 3);
