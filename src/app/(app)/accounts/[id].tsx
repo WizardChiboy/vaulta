@@ -173,7 +173,9 @@ export default function AccountDetailsScreen() {
                 key={transaction.id}
                 transaction={transaction}
                 meta={`${formatDayLabel(transaction.occurredAt)} · ${formatTime(transaction.occurredAt)}`}
-                onPress={() => comingSoon('Transaction details')}
+                onPress={() =>
+                  router.push({ pathname: '/transactions/[id]', params: { id: transaction.id } })
+                }
               />
             ))
         ) : (

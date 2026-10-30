@@ -180,7 +180,9 @@ export default function HomeScreen() {
           <TransactionRow
             key={transaction.id}
             transaction={transaction}
-            onPress={() => comingSoon('Transaction details')}
+            onPress={() =>
+              router.push({ pathname: '/transactions/[id]', params: { id: transaction.id } })
+            }
           />
         ))}
       </Card>

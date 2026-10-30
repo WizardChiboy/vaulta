@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { FlatList, ScrollView, View } from 'react-native';
+import { router } from 'expo-router';
 
 import { Screen } from '@/components/layout/Screen';
 import { ScreenHeader } from '@/components/layout/ScreenHeader';
@@ -201,7 +202,9 @@ export default function TransactionsScreen() {
                   key={transaction.id}
                   transaction={transaction}
                   meta={`${transaction.categoryLabel} · ${formatTime(transaction.occurredAt)}`}
-                  onPress={() => comingSoon('Transaction details')}
+                  onPress={() =>
+                    router.push({ pathname: '/transactions/[id]', params: { id: transaction.id } })
+                  }
                   className="py-[9px]"
                 />
               ))}
