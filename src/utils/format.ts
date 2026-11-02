@@ -107,3 +107,18 @@ export function formatRelativeTime(iso: string, now = new Date()) {
 export function firstName(fullName: string) {
   return fullName.trim().split(/\s+/)[0] ?? '';
 }
+
+/** Notification times: "Just now", "2 min ago", "5 hr ago" today, then "Wed" this week, then "4 Oct". */
+export function formatTimeAgo(iso: string, now = new Date()) {
+  const date = new Date(iso);
+  const days = daysBefore(date, now);
+  if (days === 0) {
+    const minutes = Math.max(0, Math.floor((now.getTime() - date.getTime()) / 60_000));
+    if (minutes < 1) return 'Just now';
+    if (minutes < 60) return `${minutes} min ago`;
+    return `${Math.floor(minutes / 60)} hr ago`;
+  }
+  if (days === 1) return 'Yesterday';
+  if (days < 7) return (WEEKDAYS[date.getDay()] ?? '').slice(0, 3);
+  return formatDayMonth(iso);
+}

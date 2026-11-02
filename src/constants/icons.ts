@@ -42,6 +42,7 @@ export { default as ScanFace } from 'lucide-react-native/icons/scan-face';
 export { default as Search } from 'lucide-react-native/icons/search';
 export { default as Share } from 'lucide-react-native/icons/share';
 export { default as Shield } from 'lucide-react-native/icons/shield';
+export { default as ShieldAlert } from 'lucide-react-native/icons/shield-alert';
 export { default as ShoppingCart } from 'lucide-react-native/icons/shopping-cart';
 export { default as Smartphone } from 'lucide-react-native/icons/smartphone';
 export { default as User } from 'lucide-react-native/icons/user';

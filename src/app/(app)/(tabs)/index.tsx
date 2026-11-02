@@ -12,10 +12,9 @@ import { showMessage } from '@/lib/notify';
 import { currentAccount } from '@/mock/accounts';
 import { dashboard, recentTransactions } from '@/mock/dashboard';
 import { demoUser } from '@/mock/user';
+import { useNotifications } from '@/store/notifications';
 import { useSession } from '@/store/session';
 import { firstName, formatThousands, formatWholeCurrency } from '@/utils/format';
-
-const UNREAD_NOTIFICATIONS = 3;
 
 // 18px/700 summary figures sit between type-scale steps.
 const statAmountStyle = { fontSize: 18, lineHeight: 24, letterSpacing: -0.18 };
@@ -35,6 +34,7 @@ function comingSoon(title: string) {
 // Design 08 — Home.
 export default function HomeScreen() {
   const { user } = useSession();
+  const { unreadCount } = useNotifications();
   const fullName = user?.fullName ?? demoUser.fullName;
   const { spending, featuredGoal } = dashboard;
   const spentShare = spending.spent / spending.budget;
@@ -69,13 +69,17 @@ export default function HomeScreen() {
           <IconButton
             icon={Bell}
             iconSize={22}
-            accessibilityLabel={`Notifications, ${UNREAD_NOTIFICATIONS} unread`}
-            onPress={() => comingSoon('Notifications')}
+            accessibilityLabel={
+              unreadCount > 0 ? `Notifications, ${unreadCount} unread` : 'Notifications'
+            }
+            onPress={() => router.push('/notifications')}
           />
-          <View
-            pointerEvents="none"
-            className="absolute right-2.5 top-[9px] h-[9px] w-[9px] rounded-full border-2 border-surface bg-danger"
-          />
+          {unreadCount > 0 && (
+            <View
+              pointerEvents="none"
+              className="absolute right-2.5 top-[9px] h-[9px] w-[9px] rounded-full border-2 border-surface bg-danger"
+            />
+          )}
         </View>
       </View>
 

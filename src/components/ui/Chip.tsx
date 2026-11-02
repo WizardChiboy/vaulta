@@ -1,4 +1,4 @@
-import { Pressable } from 'react-native';
+import { Pressable, View } from 'react-native';
 
 import { useTheme } from '@/components/layout/ThemeProvider';
 import { ICON_STROKE, type LucideIcon } from '@/constants/icons';
@@ -10,6 +10,8 @@ export type ChipProps = {
   selected?: boolean | undefined;
   /** 14px icon before the label, e.g. the clock on recent searches (13). */
   leadingIcon?: LucideIcon | undefined;
+  /** Green count pill after the label, e.g. unread notifications (15). Hidden at 0. */
+  count?: number | undefined;
   onPress: () => void;
   accessibilityLabel?: string | undefined;
   className?: string | undefined;
@@ -20,6 +22,7 @@ export function Chip({
   label,
   selected = false,
   leadingIcon: LeadingIcon,
+  count,
   onPress,
   accessibilityLabel,
   className,
@@ -53,6 +56,13 @@ export function Chip({
       >
         {label}
       </Text>
+      {!!count && (
+        <View className="rounded-full bg-primary px-[7px] py-px">
+          <Text variant="xs" weight="bold" tone="primary">
+            {count}
+          </Text>
+        </View>
+      )}
     </Pressable>
   );
 }
