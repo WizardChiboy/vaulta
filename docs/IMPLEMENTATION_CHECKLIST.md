@@ -73,7 +73,7 @@ Legend: ✅ done · 🟡 partly done · ⬜ not started
 | ----------------------------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------- |
 | ⬜ `Amount` / money text                  | 08 10 12 19 20 21 28 29 … | Tabular figures, muted kobo (`.00` in `#98A2B3`), sign colours. **Must solve the ₦ glyph — see §7.** |
 | ⬜ `ListRow` / `SettingsRow`              | 09 15 17 22 34–39         | Icon tile (36–40px, `#F2F4F7`), title 15/500, subtitle 13, chevron or value, `#F2F4F7` dividers      |
-| 🟡 `Chip` / `FilterChip`                  | 11 13 14 15 19 22         | Built (11): `components/ui/Chip.tsx`. Add the check icon when a screen needs it                      |
+| 🟡 `Chip` / `FilterChip`                  | 11 13 14 15 19 22         | Built (11): `components/ui/Chip.tsx`; optional leading icon (13)                                     |
 | ⬜ `Switch`                               | 18 25 31 36–39            | 48×28 track, 22px knob, green when on                                                                |
 | ⬜ `ProgressBar` over-budget variant      | 32                        | Base component built; add the red over-budget state                                                  |
 | 🟡 `Badge` / `Tag`                        | 01 15 23 31               | Built with accent · neutral tones (09); add status tones when needed                                 |
@@ -94,7 +94,7 @@ Legend: ✅ done · 🟡 partly done · ⬜ not started
 | Screen headers (custom, matches `.hd`)           | ✅     | `ScreenHeader`, `AuthScreen`                                                                                                           |
 | Signed-in area + guard (`Stack.Protected`)       | ✅     | `src/app/(app)/`; `<Stack.Protected guard={!!user} redirectTo="/welcome">` in the root layout. Sign-in and “Go to dashboard” open Home |
 | Bottom tabs: Home · Transfer · Savings · Profile | 🟡     | `(app)/(tabs)/_layout.tsx` + `TabBar`. Only Home exists; the other three show a message until built                                    |
-| Modal presentation                               | ⬜     | `presentation: 'modal'` — search (13)                                                                                                  |
+| Modal presentation                               | ✅     | `presentation: 'modal'` — search (13)                                                                                                  |
 | Bottom sheets (native `formSheet`)               | ⬜     | 14 filter (detent 0.9), 29 confirm deposit (`fitToContents`). Android sheets show no native header                                     |
 | Session persistence                              | ⬜     | In memory today; a full reload signs out                                                                                               |
 
@@ -118,7 +118,7 @@ Routes are relative to `src/app/`. `(app)` screens will require a session.
 | 10  | Account details          | `(app)/accounts/[id]`                            | push                             | ✅ ledger balance from pending holds; copy (simulated); more options, actions show a message                                           |
 | 11  | Transactions             | `(app)/transactions/index`                       | push                             | ✅ chips filter loaded items, grouped by day, paged load-more with skeleton (`services/transactions`); search/filter show a message    |
 | 12  | Transaction details      | `(app)/transactions/[id]`                        | push                             | ✅ native share sheet; copy ref (simulated); balance after computed from mock history; receipt, change category, report show a message |
-| 13  | Search transactions      | `(app)/transactions/search`                      | modal                            | ⬜                                                                                                                                     |
+| 13  | Search transactions      | `(app)/transactions/search`                      | modal                            | ✅ live search over title + category, match highlighted, recent searches (in memory)                                                   |
 | 14  | Filter transactions      | `(app)/transactions/filter`                      | formSheet 0.9                    | ⬜                                                                                                                                     |
 | 15  | Notifications            | `(app)/notifications`                            | push                             | ⬜                                                                                                                                     |
 | 16  | Transfer                 | `(app)/(tabs)/transfer`                          | tab                              | ⬜                                                                                                                                     |

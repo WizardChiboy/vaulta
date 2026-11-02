@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { Pressable, View } from 'react-native';
 
 import { useTheme } from '@/components/layout/ThemeProvider';
@@ -39,12 +40,20 @@ export type TransactionRowProps = {
   transaction: Transaction;
   /** Replaces the default "Category · time" line, e.g. "Today · 10:24" (10). */
   meta?: string | undefined;
+  /** Replaces the plain title, e.g. with the search match highlighted (13). */
+  title?: ReactNode | undefined;
   onPress: () => void;
   className?: string | undefined;
 };
 
 /** Design .tx: 40px category tile, name + meta, amount on the right. Money in is green. */
-export function TransactionRow({ transaction, meta, onPress, className }: TransactionRowProps) {
+export function TransactionRow({
+  transaction,
+  meta,
+  title,
+  onPress,
+  className,
+}: TransactionRowProps) {
   const { colors } = useTheme();
   const incoming = transaction.amount > 0;
   const Icon = transactionIcons[transactionIconKey(transaction)];
@@ -69,7 +78,7 @@ export function TransactionRow({ transaction, meta, onPress, className }: Transa
       </View>
       <View className="flex-1">
         <Text variant="body" weight="medium" numberOfLines={1}>
-          {transaction.title}
+          {title ?? transaction.title}
         </Text>
         <Text variant="caption" tone="muted" numberOfLines={1} className="mt-0.5">
           {subtitle}

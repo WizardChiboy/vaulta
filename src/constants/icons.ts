@@ -23,6 +23,8 @@ export { default as ChevronDown } from 'lucide-react-native/icons/chevron-down';
 export { default as ChevronLeft } from 'lucide-react-native/icons/chevron-left';
 export { default as ChevronRight } from 'lucide-react-native/icons/chevron-right';
 export { default as CircleAlert } from 'lucide-react-native/icons/circle-alert';
+export { default as CircleX } from 'lucide-react-native/icons/circle-x';
+export { default as Clock } from 'lucide-react-native/icons/clock';
 export { default as Copy } from 'lucide-react-native/icons/copy';
 export { default as CreditCard } from 'lucide-react-native/icons/credit-card';
 export { default as Download } from 'lucide-react-native/icons/download';

@@ -133,7 +133,7 @@ export default function TransactionsScreen() {
                   <IconButton
                     icon={Search}
                     accessibilityLabel="Search transactions"
-                    onPress={() => comingSoon('Search transactions')}
+                    onPress={() => router.push('/transactions/search')}
                   />
                   <IconButton
                     icon={ListFilter}
