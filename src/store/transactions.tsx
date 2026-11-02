@@ -1,10 +1,18 @@
 import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from 'react';
 
+import type { TransactionFilters } from '@/types/transaction';
+import { DEFAULT_FILTERS } from '@/utils/transactionFilters';
+
 /** Recent searches kept on Search transactions (13). */
 const MAX_RECENT_SEARCHES = 6;
 
-/** Transactions UI state shared between screens: recent searches (13). In memory only. */
+/**
+ * Transactions UI state shared between screens: the filters applied from the filter
+ * sheet (14) to the list (11), and recent searches (13). In memory only.
+ */
 type TransactionsContextValue = {
+  filters: TransactionFilters;
+  setFilters: (filters: TransactionFilters) => void;
   recentSearches: string[];
   addRecentSearch: (query: string) => void;
   clearRecentSearches: () => void;
@@ -16,6 +24,7 @@ const TransactionsContext = createContext<TransactionsContextValue | null>(null)
 const INITIAL_RECENT_SEARCHES = ['Netflix', 'Ikeja Electric', 'Tunde'];
 
 export function TransactionsProvider({ children }: { children: ReactNode }) {
+  const [filters, setFilters] = useState<TransactionFilters>(DEFAULT_FILTERS);
   const [recentSearches, setRecentSearches] = useState<string[]>(INITIAL_RECENT_SEARCHES);
 
   const addRecentSearch = useCallback((query: string) => {
@@ -32,8 +41,8 @@ export function TransactionsProvider({ children }: { children: ReactNode }) {
   const clearRecentSearches = useCallback(() => setRecentSearches([]), []);
 
   const value = useMemo(
-    () => ({ recentSearches, addRecentSearch, clearRecentSearches }),
-    [recentSearches, addRecentSearch, clearRecentSearches]
+    () => ({ filters, setFilters, recentSearches, addRecentSearch, clearRecentSearches }),
+    [filters, recentSearches, addRecentSearch, clearRecentSearches]
   );
 
   return <TransactionsContext.Provider value={value}>{children}</TransactionsContext.Provider>;

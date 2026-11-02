@@ -25,3 +25,22 @@ export type Transaction = {
   /** Balance after a settled transaction; absent while pending. */
   balanceAfter?: number | undefined;
 };
+
+/** Preset periods on Filter transactions (14). */
+export type DateRangePreset = 'this-month' | 'last-30-days' | 'three-months' | 'custom';
+
+export type TransactionDirection = 'all' | 'in' | 'out';
+
+export type TransactionFilters = {
+  /** null = any date. */
+  dateRange: DateRangePreset | null;
+  /** ISO dates (start of day) bounding a custom range. */
+  from: string;
+  to: string;
+  direction: TransactionDirection;
+  /** Empty = every category. */
+  categories: TransactionCategory[];
+  /** Naira, compared with the absolute amount. `max` null = no upper limit. */
+  minAmount: number;
+  maxAmount: number | null;
+};

@@ -17,6 +17,7 @@ export { default as ArrowRightLeft } from 'lucide-react-native/icons/arrow-right
 export { default as ArrowUpRight } from 'lucide-react-native/icons/arrow-up-right';
 export { default as Bell } from 'lucide-react-native/icons/bell';
 export { default as BriefcaseMedical } from 'lucide-react-native/icons/briefcase-medical';
+export { default as Calendar } from 'lucide-react-native/icons/calendar';
 export { default as Car } from 'lucide-react-native/icons/car';
 export { default as Check } from 'lucide-react-native/icons/check';
 export { default as ChevronDown } from 'lucide-react-native/icons/chevron-down';
@@ -45,4 +46,5 @@ export { default as ShoppingCart } from 'lucide-react-native/icons/shopping-cart
 export { default as Smartphone } from 'lucide-react-native/icons/smartphone';
 export { default as User } from 'lucide-react-native/icons/user';
 export { default as Utensils } from 'lucide-react-native/icons/utensils';
+export { default as X } from 'lucide-react-native/icons/x';
 export { default as Zap } from 'lucide-react-native/icons/zap';

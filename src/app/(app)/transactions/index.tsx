@@ -5,11 +5,11 @@ import { router } from 'expo-router';
 import { Screen } from '@/components/layout/Screen';
 import { ScreenHeader } from '@/components/layout/ScreenHeader';
 import { TransactionRow } from '@/components/money/TransactionRow';
-import { Card, Chip, IconButton, Text } from '@/components/ui';
+import { Card, Chip, IconButton, Text, TextLink } from '@/components/ui';
 import { ListFilter, Search } from '@/constants/icons';
-import { showMessage } from '@/lib/notify';
 import { dashboard } from '@/mock/dashboard';
 import { fetchTransactions } from '@/services/transactions';
+import { useTransactionsStore } from '@/store/transactions';
 import type { Transaction } from '@/types/transaction';
 import {
   formatDayLabel,
@@ -18,6 +18,7 @@ import {
   formatTime,
   formatWholeCurrency,
 } from '@/utils/format';
+import { activeFilterCount, DEFAULT_FILTERS } from '@/utils/transactionFilters';
 
 type Filter = 'all' | 'in' | 'out' | 'pending';
 
@@ -46,11 +47,6 @@ type DayGroup = {
 
 // 16px/700 summary figures sit between type-scale steps.
 const summaryAmountStyle = { fontSize: 16, lineHeight: 22 };
-
-/** For destinations whose screens aren't built yet. */
-function comingSoon(title: string) {
-  showMessage(title, 'This is a demo — this screen is coming in a later module.');
-}
 
 /** Groups newest-first transactions by calendar day. */
 function groupByDay(items: readonly Transaction[]): DayGroup[] {
@@ -81,12 +77,26 @@ export default function TransactionsScreen() {
   const [cursor, setCursor] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<Filter>('all');
+  // Filters applied from the filter sheet (14); the list reloads when they change.
+  const { filters, setFilters } = useTransactionsStore();
+  const [listFilters, setListFilters] = useState(filters);
+  if (listFilters !== filters) {
+    setListFilters(filters);
+    setItems([]);
+    setCursor(null);
+    setLoading(true);
+  }
+  const activeFilters = activeFilterCount(filters);
   // Guards against onEndReached firing again before the loading state re-renders.
   const fetching = useRef(true);
+  // Lets a page that arrives after the filters changed be dropped.
+  const currentFilters = useRef(filters);
 
   useEffect(() => {
     let active = true;
-    void fetchTransactions().then((page) => {
+    currentFilters.current = filters;
+    fetching.current = true;
+    void fetchTransactions(0, filters).then((page) => {
       if (!active) return;
       setItems(page.items);
       setCursor(page.nextCursor);
@@ -96,19 +106,23 @@ export default function TransactionsScreen() {
     return () => {
       active = false;
     };
-  }, []);
+  }, [filters]);
 
   const loadEarlier = async () => {
     if (cursor === null || fetching.current) return;
     fetching.current = true;
     setLoading(true);
+    const requested = filters;
     try {
-      const page = await fetchTransactions(cursor);
+      const page = await fetchTransactions(cursor, requested);
+      if (currentFilters.current !== requested) return;
       setItems((previous) => [...previous, ...page.items]);
       setCursor(page.nextCursor);
     } finally {
-      fetching.current = false;
-      setLoading(false);
+      if (currentFilters.current === requested) {
+        fetching.current = false;
+        setLoading(false);
+      }
     }
   };
 
@@ -135,11 +149,23 @@ export default function TransactionsScreen() {
                     accessibilityLabel="Search transactions"
                     onPress={() => router.push('/transactions/search')}
                   />
-                  <IconButton
-                    icon={ListFilter}
-                    accessibilityLabel="Filter transactions"
-                    onPress={() => comingSoon('Filter transactions')}
-                  />
+                  <View>
+                    <IconButton
+                      icon={ListFilter}
+                      accessibilityLabel={
+                        activeFilters > 0
+                          ? `Filter transactions, ${activeFilters} active`
+                          : 'Filter transactions'
+                      }
+                      onPress={() => router.push('/transactions/filter')}
+                    />
+                    {activeFilters > 0 && (
+                      <View
+                        pointerEvents="none"
+                        className="absolute right-2.5 top-[9px] h-[9px] w-[9px] rounded-full border-2 border-surface bg-primary"
+                      />
+                    )}
+                  </View>
                 </View>
               }
             />
@@ -226,9 +252,22 @@ export default function TransactionsScreen() {
               ))}
             </Card>
           ) : groups.length === 0 ? (
-            <Text variant="bodySm" tone="muted" className="mt-xl text-center">
-              No transactions to show.
-            </Text>
+            <View className="mt-xl items-center gap-sm">
+              <Text variant="bodySm" tone="muted" className="text-center">
+                {activeFilters > 0
+                  ? 'No transactions match your filters.'
+                  : 'No transactions to show.'}
+              </Text>
+              {activeFilters > 0 && (
+                <TextLink
+                  accessibilityRole="button"
+                  onPress={() => setFilters(DEFAULT_FILTERS)}
+                  className="py-1.5"
+                >
+                  Clear filters
+                </TextLink>
+              )}
+            </View>
           ) : undefined
         }
       />
