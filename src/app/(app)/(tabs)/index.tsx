@@ -95,7 +95,7 @@ export default function HomeScreen() {
         <QuickAction
           icon={ArrowUpRight}
           label="Transfer"
-          onPress={() => comingSoon('Transfer')}
+          onPress={() => router.navigate('/transfer')}
           className="flex-1"
         />
         <QuickAction
