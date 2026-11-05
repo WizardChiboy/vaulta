@@ -1,4 +1,4 @@
-import { useState, type ComponentRef, type Ref } from 'react';
+import { useState, type ComponentRef, type ReactNode, type Ref } from 'react';
 import { Pressable, TextInput, View, type TextInputProps } from 'react-native';
 
 import { useTheme } from '@/components/layout/ThemeProvider';
@@ -14,11 +14,15 @@ export type TextFieldProps = TextInputProps & {
   /** Positive confirmation below the input (e.g. "Passwords match"); green border. */
   success?: string | undefined;
   hint?: string | undefined;
+  /** Green border without a message, e.g. a verified account number (18). */
+  valid?: boolean | undefined;
   leadingIcon?: LucideIcon | undefined;
   trailingIcon?: LucideIcon | undefined;
   /** Makes the trailing icon tappable, e.g. a show/hide password toggle. */
   onTrailingIconPress?: (() => void) | undefined;
   trailingIconLabel?: string | undefined;
+  /** Custom content at the end of the input, e.g. a status badge. */
+  trailing?: ReactNode | undefined;
   containerClassName?: string | undefined;
   ref?: Ref<ComponentRef<typeof TextInput>> | undefined;
 };
@@ -28,10 +32,12 @@ export function TextField({
   error,
   success,
   hint,
+  valid = false,
   leadingIcon: LeadingIcon,
   trailingIcon: TrailingIcon,
   onTrailingIconPress,
   trailingIconLabel,
+  trailing,
   containerClassName,
   editable = true,
   onFocus,
@@ -56,7 +62,11 @@ export function TextField({
       <View
         className={cn(
           'h-[52px] flex-row items-center gap-md rounded-md border bg-surface px-[14px]',
-          error ? 'border-danger' : focused || success ? 'border-primary' : 'border-border-strong',
+          error
+            ? 'border-danger'
+            : focused || success || valid
+              ? 'border-primary'
+              : 'border-border-strong',
           !editable && 'bg-surface-muted'
         )}
         style={ring ? { boxShadow: `0px 0px 0px 4px ${ring}` } : undefined}
@@ -98,6 +108,7 @@ export function TextField({
           ) : (
             <TrailingIcon size={20} color={colors.muted} strokeWidth={ICON_STROKE} />
           ))}
+        {trailing}
       </View>
 
       {error ? (

@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { Pressable, View } from 'react-native';
+import { router } from 'expo-router';
 
 import { useTheme } from '@/components/layout/ThemeProvider';
 import { Screen } from '@/components/layout/Screen';
@@ -9,18 +10,23 @@ import { ICON_STROKE, Landmark, Plus, RotateCcwClock } from '@/constants/icons';
 import { cn } from '@/lib/cn';
 import { showMessage } from '@/lib/notify';
 import { currentAccount } from '@/mock/accounts';
-import { getRecipient, recentTransfers, savedRecipients } from '@/mock/recipients';
+import { recentTransfers } from '@/mock/recipients';
+import { useRecipients } from '@/store/recipients';
 import type { Recipient } from '@/types/recipient';
 import { formatCurrency, formatDayMonth, formatWholeCurrency } from '@/utils/format';
 
-/** For destinations whose screens aren't built yet (17–22). */
+/** For destinations whose screens aren't built yet (19–22). */
 function comingSoon(title: string) {
   showMessage(title, 'This is a demo — this screen is coming in a later module.');
 }
 
+/** Saved recipients that fit beside "Add new" in one row. */
+const SHORTCUT_COUNT = 4;
+
 // Design 16 — Transfer.
 export default function TransferScreen() {
   const { colors } = useTheme();
+  const { recipients, getRecipient } = useRecipients();
 
   return (
     <Screen scroll edges={['top']} contentClassName="pb-xl">
@@ -52,7 +58,7 @@ export default function TransferScreen() {
               <Landmark size={22} color={colors['brand-foreground']} strokeWidth={ICON_STROKE} />
             </View>
           }
-          onPress={() => comingSoon('Select recipient')}
+          onPress={() => router.push('/transfers/recipient')}
         />
         <TransferOption
           title="Vaulta to Vaulta"
@@ -70,7 +76,7 @@ export default function TransferScreen() {
               </Text>
             </View>
           }
-          onPress={() => comingSoon('Select recipient')}
+          onPress={() => router.push('/transfers/recipient')}
         />
       </View>
 
@@ -78,7 +84,7 @@ export default function TransferScreen() {
         <Text variant="h3" accessibilityRole="header">
           Saved recipients
         </Text>
-        <TextLink onPress={() => comingSoon('Select recipient')}>See all</TextLink>
+        <TextLink onPress={() => router.push('/transfers/recipient')}>See all</TextLink>
       </View>
 
       <View className="mt-md flex-row justify-between">
@@ -86,9 +92,9 @@ export default function TransferScreen() {
           label="Add new"
           accessibilityLabel="Add new recipient"
           avatar={<Avatar name="Add new recipient" size="lg" tone="add" icon={Plus} />}
-          onPress={() => comingSoon('Add recipient')}
+          onPress={() => router.push('/transfers/add-recipient')}
         />
-        {savedRecipients.map((recipient) => (
+        {recipients.slice(0, SHORTCUT_COUNT).map((recipient) => (
           <RecipientShortcut
             key={recipient.id}
             label={recipient.shortName}

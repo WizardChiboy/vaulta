@@ -47,6 +47,7 @@ export { default as Shield } from 'lucide-react-native/icons/shield';
 export { default as ShieldAlert } from 'lucide-react-native/icons/shield-alert';
 export { default as ShoppingCart } from 'lucide-react-native/icons/shopping-cart';
 export { default as Smartphone } from 'lucide-react-native/icons/smartphone';
+export { default as Star } from 'lucide-react-native/icons/star';
 export { default as User } from 'lucide-react-native/icons/user';
 export { default as Utensils } from 'lucide-react-native/icons/utensils';
 export { default as X } from 'lucide-react-native/icons/x';
