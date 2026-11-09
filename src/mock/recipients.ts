@@ -1,4 +1,4 @@
-import type { RecentTransfer, Recipient } from '@/types/recipient';
+import type { RecentTransfer, Recipient, TransferHistoryItem } from '@/types/recipient';
 
 // Fictional saved recipients from the Transfer designs (16, 17). Never real account details.
 export const savedRecipients: Recipient[] = [
@@ -67,6 +67,72 @@ export const recentTransfers: RecentTransfer[] = [
   { id: 'trf_demo_001', recipientId: 'rcp_demo_001', amount: 75000, sentAt: daysAgo(2) },
   { id: 'trf_demo_002', recipientId: 'rcp_demo_002', amount: 20000, sentAt: daysAgo(4) },
   { id: 'trf_demo_003', recipientId: 'rcp_demo_003', amount: 150000, sentAt: daysAgo(6) },
+];
+
+function daysAgoAt(days: number, hours = 18, minutes = 42): string {
+  const date = new Date();
+  date.setDate(date.getDate() - days);
+  date.setHours(hours, minutes, 0, 0);
+  return date.toISOString();
+}
+
+/** Newest first. Matches the rows on screen 22 — Transfer history. */
+export const transferHistory: TransferHistoryItem[] = [
+  {
+    id: 'th_001',
+    recipientId: 'rcp_demo_001',
+    amount: 75000,
+    sentAt: daysAgoAt(0),
+    status: 'successful',
+    reference: 'VLT-2610-8834-1927',
+    fee: 26.88,
+    note: 'October rent contribution',
+  },
+  {
+    id: 'th_002',
+    recipientId: 'rcp_demo_002',
+    amount: 20000,
+    sentAt: daysAgoAt(26, 11, 5),
+    status: 'pending',
+    reference: 'VLT-1410-7721-3344',
+    fee: 26.88,
+  },
+  {
+    id: 'th_003',
+    recipientId: 'rcp_demo_003',
+    amount: 150000,
+    sentAt: daysAgoAt(28, 9, 20),
+    status: 'successful',
+    reference: 'VLT-1210-5563-8821',
+    fee: 26.88,
+  },
+  {
+    id: 'th_004',
+    recipientId: 'rcp_demo_004',
+    amount: 12500,
+    sentAt: daysAgoAt(30, 15, 33),
+    status: 'failed',
+    reference: 'VLT-1010-9912-5533',
+    fee: 0,
+  },
+  {
+    id: 'th_005',
+    recipientId: 'rcp_demo_005',
+    amount: 30000,
+    sentAt: daysAgoAt(33, 8, 10),
+    status: 'successful',
+    reference: 'VLT-0710-3312-9977',
+    fee: 0,
+  },
+  {
+    id: 'th_006',
+    recipientId: 'rcp_demo_006',
+    amount: 45000,
+    sentAt: daysAgoAt(37, 20, 55),
+    status: 'successful',
+    reference: 'VLT-0310-7742-1156',
+    fee: 26.88,
+  },
 ];
 
 /**

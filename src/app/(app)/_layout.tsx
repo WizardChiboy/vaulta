@@ -49,6 +49,10 @@ export default function AppLayout() {
                 contentStyle: { backgroundColor: colors.surface },
               }}
             />
+            <Stack.Screen name="transfers/amount" />
+            <Stack.Screen name="transfers/review" />
+            <Stack.Screen name="transfers/success" options={{ gestureEnabled: false }} />
+            <Stack.Screen name="transfers/history" />
           </Stack>
         </RecipientsProvider>
       </TransactionsProvider>

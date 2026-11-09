@@ -8,17 +8,11 @@ import { ScreenHeader } from '@/components/layout/ScreenHeader';
 import { Avatar, Card, IconButton, Text, TextLink } from '@/components/ui';
 import { ICON_STROKE, Landmark, Plus, RotateCcwClock } from '@/constants/icons';
 import { cn } from '@/lib/cn';
-import { showMessage } from '@/lib/notify';
 import { currentAccount } from '@/mock/accounts';
 import { recentTransfers } from '@/mock/recipients';
 import { useRecipients } from '@/store/recipients';
 import type { Recipient } from '@/types/recipient';
 import { formatCurrency, formatDayMonth, formatWholeCurrency } from '@/utils/format';
-
-/** For destinations whose screens aren't built yet (19–22). */
-function comingSoon(title: string) {
-  showMessage(title, 'This is a demo — this screen is coming in a later module.');
-}
 
 /** Saved recipients that fit beside "Add new" in one row. */
 const SHORTCUT_COUNT = 4;
@@ -37,7 +31,7 @@ export default function TransferScreen() {
           <IconButton
             icon={RotateCcwClock}
             accessibilityLabel="Transfer history"
-            onPress={() => comingSoon('Transfer history')}
+            onPress={() => router.push('/transfers/history')}
           />
         }
       />
@@ -100,7 +94,9 @@ export default function TransferScreen() {
             label={recipient.shortName}
             accessibilityLabel={`Send to ${recipient.fullName}`}
             avatar={<Avatar name={recipient.fullName} size="lg" tone={recipient.tone} />}
-            onPress={() => comingSoon('Enter amount')}
+            onPress={() =>
+              router.push({ pathname: '/transfers/amount', params: { recipientId: recipient.id } })
+            }
           />
         ))}
       </View>
@@ -120,7 +116,12 @@ export default function TransferScreen() {
               amount={formatWholeCurrency(transfer.amount)}
               date={formatDayMonth(transfer.sentAt)}
               divider={index > 0}
-              onPress={() => comingSoon('Enter amount')}
+              onPress={() =>
+                router.push({
+                  pathname: '/transfers/amount',
+                  params: { recipientId: transfer.recipientId },
+                })
+              }
             />
           );
         })}

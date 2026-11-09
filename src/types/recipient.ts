@@ -34,3 +34,13 @@ export type Bank = {
 
 /** Result of an account-name lookup (18). */
 export type AccountLookup = { found: true; accountName: string } | { found: false };
+
+export type TransferStatus = 'successful' | 'pending' | 'failed';
+
+/** A completed (or in-flight / failed) transfer record, used on screens 21–22. */
+export type TransferHistoryItem = RecentTransfer & {
+  status: TransferStatus;
+  reference: string;
+  fee: number;
+  note?: string | undefined;
+};

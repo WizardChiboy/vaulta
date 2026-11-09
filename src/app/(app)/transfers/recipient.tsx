@@ -9,7 +9,6 @@ import { Avatar, Badge, Card, Text } from '@/components/ui';
 import { ChevronRight, CircleX, ICON_STROKE, Plus, Search, Star } from '@/constants/icons';
 import { fontFamily, typeScale } from '@/constants/theme';
 import { cn } from '@/lib/cn';
-import { showMessage } from '@/lib/notify';
 import { useRecipients } from '@/store/recipients';
 import type { Recipient } from '@/types/recipient';
 
@@ -35,10 +34,7 @@ export default function SelectRecipientScreen() {
     : recipients;
 
   const selectRecipient = (recipient: Recipient) =>
-    showMessage(
-      `Send to ${recipient.fullName}`,
-      'This is a demo — entering an amount is coming in a later module.'
-    );
+    router.push({ pathname: '/transfers/amount', params: { recipientId: recipient.id } });
 
   return (
     <Screen scroll edges={['top', 'bottom']} contentClassName="pb-xl">
