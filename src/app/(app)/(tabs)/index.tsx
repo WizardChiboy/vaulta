@@ -107,7 +107,7 @@ export default function HomeScreen() {
         <QuickAction
           icon={CreditCard}
           label="Cards"
-          onPress={() => comingSoon('Cards')}
+          onPress={() => router.push('/cards')}
           className="flex-1"
         />
         <QuickAction
