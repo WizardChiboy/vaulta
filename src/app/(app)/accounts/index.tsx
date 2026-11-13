@@ -147,7 +147,7 @@ function AccountCard({ account }: { account: Account }) {
         >
           <View className="mt-3.5 flex-row gap-sm">
             <AccountAction label="Add money" icon={Plus} onPress={() => comingSoon('Add money')} />
-            <AccountAction label="View goals" onPress={() => comingSoon('Savings goals')} />
+            <AccountAction label="View goals" onPress={() => router.push('/savings')} />
           </View>
         </AccountCardFrame>
       );

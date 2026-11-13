@@ -54,7 +54,8 @@ export default function AppLayout() {
             <Stack.Screen name="transfers/success" options={{ gestureEnabled: false }} />
             <Stack.Screen name="transfers/history" />
             <Stack.Screen name="cards/index" />
-            <Stack.Screen name="cards/[id]" />
+            <Stack.Screen name="cards/[id]/index" />
+            <Stack.Screen name="cards/[id]/controls" />
           </Stack>
         </RecipientsProvider>
       </TransactionsProvider>

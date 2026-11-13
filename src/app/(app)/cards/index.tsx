@@ -75,13 +75,17 @@ export default function CardsScreen() {
         <QuickAction
           icon={SlidersVertical}
           label="Limits"
-          onPress={() => comingSoon('Card limits')}
+          onPress={() =>
+            router.push({ pathname: '/cards/[id]/controls', params: { id: featured.id } })
+          }
           className="flex-1"
         />
         <QuickAction
           icon={Settings}
           label="Settings"
-          onPress={() => comingSoon('Card settings')}
+          onPress={() =>
+            router.push({ pathname: '/cards/[id]/controls', params: { id: featured.id } })
+          }
           className="flex-1"
         />
       </View>
@@ -131,7 +135,7 @@ function CardListRow({ card, divider }: CardListRowProps) {
 
   const onPress = isVirtual
     ? () => router.push({ pathname: '/cards/[id]', params: { id: card.id } })
-    : () => comingSoon('Card controls');
+    : () => router.push({ pathname: '/cards/[id]/controls', params: { id: card.id } });
 
   const name = isVirtual ? 'Virtual debit' : 'Physical debit';
   const meta = `•••• ${card.last4} · ${card.purpose}`;

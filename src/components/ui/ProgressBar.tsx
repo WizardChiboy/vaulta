@@ -7,10 +7,17 @@ export type ProgressBarProps = {
   value: number;
   /** 'thin' = 4px step indicator (design 03); 'default' = 8px goal/budget bars. */
   size?: 'thin' | 'default' | undefined;
+  /** Track colour for default bars: soft green (Home 08) or neutral grey (Savings 26). */
+  track?: 'soft' | 'muted' | undefined;
   className?: string | undefined;
 };
 
-export function ProgressBar({ value, size = 'default', className }: ProgressBarProps) {
+export function ProgressBar({
+  value,
+  size = 'default',
+  track = 'soft',
+  className,
+}: ProgressBarProps) {
   const percent = Math.round(Math.min(Math.max(value, 0), 1) * 100);
   const height = size === 'thin' ? 'h-1' : 'h-2';
 
@@ -21,7 +28,7 @@ export function ProgressBar({ value, size = 'default', className }: ProgressBarP
       className={cn(
         'overflow-hidden rounded-full',
         height,
-        size === 'thin' ? 'bg-border' : 'bg-accent-soft',
+        size === 'thin' ? 'bg-border' : track === 'muted' ? 'bg-surface-muted' : 'bg-accent-soft',
         className
       )}
     >

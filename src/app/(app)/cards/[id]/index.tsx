@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { View } from 'react-native';
-import { useLocalSearchParams } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 
 import { useTheme } from '@/components/layout/ThemeProvider';
 import { Screen } from '@/components/layout/Screen';
@@ -10,7 +10,6 @@ import { Button, IconButton, KeyValueList, Text } from '@/components/ui';
 import { CopyButton } from '@/components/ui/CopyButton';
 import { Eye, EyeOff, SlidersVertical } from '@/constants/icons';
 import { cn } from '@/lib/cn';
-import { showMessage } from '@/lib/notify';
 import { getCard } from '@/mock/cards';
 import { formatWholeCurrency } from '@/utils/format';
 
@@ -181,12 +180,7 @@ export default function CardDetailsScreen() {
           variant="secondary"
           leadingIcon={SlidersVertical}
           fullWidth
-          onPress={() =>
-            showMessage(
-              'Card controls',
-              'This is a demo — this screen is coming in a later module.'
-            )
-          }
+          onPress={() => router.push({ pathname: '/cards/[id]/controls', params: { id: card.id } })}
         />
       </View>
     </Screen>

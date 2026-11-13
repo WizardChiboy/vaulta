@@ -113,7 +113,7 @@ export default function HomeScreen() {
         <QuickAction
           icon={BriefcaseMedical}
           label="Savings"
-          onPress={() => comingSoon('Savings')}
+          onPress={() => router.push('/savings')}
           className="flex-1"
         />
       </View>
@@ -153,7 +153,7 @@ export default function HomeScreen() {
 
         <Pressable
           accessibilityRole="button"
-          onPress={() => comingSoon(featuredGoal.name)}
+          onPress={() => router.push('/savings')}
           className="flex-1 rounded-lg border border-border bg-surface p-[14px] active:bg-surface-hover"
         >
           <Text variant="small" weight="medium" tone="muted">

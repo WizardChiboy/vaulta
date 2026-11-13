@@ -14,6 +14,8 @@ export const virtualCard: Card = {
   billingAddress: 'Admiralty Way, Lekki, Lagos',
   monthlySpend: 212840,
   monthlyLimit: 300000,
+  transactionLimit: 100000,
+  controls: { onlinePayments: true, internationalPayments: false, notifications: true },
   weeklyBars: [0.6, 0.85, 0.45, 1],
   purpose: 'Online payments',
 };
@@ -30,6 +32,8 @@ export const physicalCard: Card = {
   billingAddress: 'Admiralty Way, Lekki, Lagos',
   monthlySpend: 0,
   monthlyLimit: 300000,
+  transactionLimit: 50000,
+  controls: { onlinePayments: false, internationalPayments: false, notifications: true },
   weeklyBars: [0.3, 0.4, 0.2, 0],
   purpose: 'Frozen by you',
 };
