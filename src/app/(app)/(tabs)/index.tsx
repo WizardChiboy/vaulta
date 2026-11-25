@@ -13,6 +13,7 @@ import { currentAccount } from '@/mock/accounts';
 import { dashboard, recentTransactions } from '@/mock/dashboard';
 import { demoUser } from '@/mock/user';
 import { useNotifications } from '@/store/notifications';
+import { useSavings } from '@/store/savings';
 import { useSession } from '@/store/session';
 import { firstName, formatThousands, formatWholeCurrency } from '@/utils/format';
 
@@ -36,9 +37,12 @@ export default function HomeScreen() {
   const { user } = useSession();
   const { unreadCount } = useNotifications();
   const fullName = user?.fullName ?? demoUser.fullName;
-  const { spending, featuredGoal } = dashboard;
+  const { getGoal } = useSavings();
+  const { spending } = dashboard;
+  // Live figures, so a deposit made on Add money (29) shows here too.
+  const featuredGoal = getGoal(dashboard.featuredGoal.id) ?? dashboard.featuredGoal;
   const spentShare = spending.spent / spending.budget;
-  const goalShare = featuredGoal.saved / featuredGoal.target;
+  const goalShare = Math.min(featuredGoal.saved / featuredGoal.target, 1);
 
   return (
     <Screen scroll edges={['top']} contentClassName="pb-xl">
@@ -121,7 +125,7 @@ export default function HomeScreen() {
       <View className="mt-[18px] flex-row gap-md">
         <Pressable
           accessibilityRole="button"
-          onPress={() => comingSoon('Spending analytics')}
+          onPress={() => router.push('/insights')}
           className="flex-1 rounded-lg border border-border bg-surface p-[14px] active:bg-surface-hover"
         >
           <Text variant="small" weight="medium" tone="muted">
@@ -153,7 +157,7 @@ export default function HomeScreen() {
 
         <Pressable
           accessibilityRole="button"
-          onPress={() => router.push('/savings')}
+          onPress={() => router.push({ pathname: '/goals/[id]', params: { id: featuredGoal.id } })}
           className="flex-1 rounded-lg border border-border bg-surface p-[14px] active:bg-surface-hover"
         >
           <Text variant="small" weight="medium" tone="muted">

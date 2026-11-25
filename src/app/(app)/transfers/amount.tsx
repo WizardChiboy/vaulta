@@ -2,12 +2,18 @@ import { useState } from 'react';
 import { Pressable, TextInput, View } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
 
+import {
+  applyAmountKey,
+  formatAmountInput,
+  NumberPad,
+  type NumberPadKey,
+} from '@/components/forms/NumberPad';
 import { useTheme } from '@/components/layout/ThemeProvider';
 import { Screen } from '@/components/layout/Screen';
 import { ScreenHeader } from '@/components/layout/ScreenHeader';
 import { Avatar, Button, Card, Text } from '@/components/ui';
 import { Chip } from '@/components/ui/Chip';
-import { Delete, ICON_STROKE, Pencil } from '@/constants/icons';
+import { ICON_STROKE, Pencil } from '@/constants/icons';
 import { fontFamily, typeScale } from '@/constants/theme';
 import { currentAccount } from '@/mock/accounts';
 import { useRecipients } from '@/store/recipients';
@@ -20,17 +26,6 @@ export function calcTransferFee(amount: number, isVaulta: boolean): number {
   if (isVaulta || amount <= 0) return 0;
   if (amount <= 5000) return 10.75;
   return 26.88;
-}
-
-/** Format raw digit string for display, e.g. "75000" → "75,000". */
-function formatAmountInput(raw: string): string {
-  if (!raw) return '';
-  const dotIdx = raw.indexOf('.');
-  const wholePart = dotIdx === -1 ? raw : raw.slice(0, dotIdx);
-  const decPart = dotIdx === -1 ? undefined : raw.slice(dotIdx + 1);
-  const wholeNum = parseInt(wholePart, 10);
-  const formatted = Number.isNaN(wholeNum) ? '' : wholeNum.toLocaleString('en-NG');
-  return decPart !== undefined ? `${formatted}.${decPart}` : formatted;
 }
 
 // Design 19 — Enter amount.
@@ -46,23 +41,8 @@ export default function EnterAmountScreen() {
   const numAmount = parseFloat(rawInput) || 0;
   const isValid = numAmount > 0 && numAmount <= currentAccount.balance;
 
-  function handleKey(key: string): void {
-    setRawInput((prev) => {
-      if (key === 'del') return prev.slice(0, -1);
-      if (key === '.') {
-        if (prev.includes('.')) return prev;
-        return prev === '' ? '0.' : prev + '.';
-      }
-      // No leading zeros on integer part
-      if (prev === '0') return key;
-      // Max 2 decimal places
-      const dotIdx = prev.indexOf('.');
-      if (dotIdx !== -1 && prev.length - dotIdx > 2) return prev;
-      // Max 9 integer digits (₦999,999,999)
-      const wholePart = dotIdx === -1 ? prev : prev.slice(0, dotIdx);
-      if (dotIdx === -1 && wholePart.length >= 9) return prev;
-      return prev + key;
-    });
+  function handleKey(key: NumberPadKey): void {
+    setRawInput((previous) => applyAmountKey(previous, key));
   }
 
   function goToReview(): void {
@@ -182,55 +162,9 @@ export default function EnterAmountScreen() {
       />
 
       {/* Number pad — pushed to bottom of scroll content */}
-      <View className="mt-auto pb-6 pt-lg" accessibilityLabel="Number pad">
+      <View className="mt-auto pb-6 pt-lg">
         <NumberPad onKey={handleKey} />
       </View>
     </Screen>
-  );
-}
-
-type NumberPadProps = { onKey: (key: string) => void };
-
-function NumberPad({ onKey }: NumberPadProps) {
-  const { colors } = useTheme();
-
-  const rows = [
-    ['1', '2', '3'],
-    ['4', '5', '6'],
-    ['7', '8', '9'],
-    ['.', '0', 'del'],
-  ] as const;
-
-  return (
-    <View style={{ gap: 4 }}>
-      {rows.map((row) => (
-        <View key={row.join()} style={{ flexDirection: 'row', gap: 4 }}>
-          {row.map((key) => (
-            <Pressable
-              key={key}
-              accessibilityRole="button"
-              accessibilityLabel={key === 'del' ? 'Delete' : key}
-              onPress={() => onKey(key)}
-              style={({ pressed }) => ({
-                flex: 1,
-                height: 52,
-                borderRadius: 12,
-                alignItems: 'center',
-                justifyContent: 'center',
-                backgroundColor: pressed ? colors['surface-hover'] : 'transparent',
-              })}
-            >
-              {key === 'del' ? (
-                <Delete size={24} color={colors.foreground} strokeWidth={ICON_STROKE} />
-              ) : (
-                <Text style={{ fontSize: 24 }} className="font-sans-medium text-foreground">
-                  {key}
-                </Text>
-              )}
-            </Pressable>
-          ))}
-        </View>
-      ))}
-    </View>
   );
 }

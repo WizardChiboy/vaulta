@@ -21,6 +21,8 @@ export type TextFieldProps = TextInputProps & {
   /** Makes the trailing icon tappable, e.g. a show/hide password toggle. */
   onTrailingIconPress?: (() => void) | undefined;
   trailingIconLabel?: string | undefined;
+  /** Custom content at the start of the input, e.g. a currency sign (27). */
+  leading?: ReactNode | undefined;
   /** Custom content at the end of the input, e.g. a status badge. */
   trailing?: ReactNode | undefined;
   containerClassName?: string | undefined;
@@ -37,6 +39,7 @@ export function TextField({
   trailingIcon: TrailingIcon,
   onTrailingIconPress,
   trailingIconLabel,
+  leading,
   trailing,
   containerClassName,
   editable = true,
@@ -72,6 +75,7 @@ export function TextField({
         style={ring ? { boxShadow: `0px 0px 0px 4px ${ring}` } : undefined}
       >
         {LeadingIcon && <LeadingIcon size={20} color={iconColor} strokeWidth={ICON_STROKE} />}
+        {leading}
 
         <TextInput
           ref={ref}

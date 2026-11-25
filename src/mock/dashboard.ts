@@ -11,7 +11,9 @@ export const dashboard = {
     /** Relative bar heights for the mini chart; the last bar is the current period. */
     bars: [0.4, 0.65, 0.5, 0.85, 0.6, 1],
   },
+  /** Shown until the savings store is available; Home reads the live goal by id. */
   featuredGoal: {
+    id: 'goal_001',
     name: 'Emergency fund',
     saved: 780000,
     target: 1200000,
