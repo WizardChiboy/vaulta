@@ -9,6 +9,8 @@ import { cn } from '@/lib/cn';
 
 export type TextFieldProps = TextInputProps & {
   label?: string | undefined;
+  /** Right-aligned note on the label row, e.g. "Verified" (35). */
+  labelAccessory?: ReactNode | undefined;
   /** Shown below the input with an alert icon; switches the field to its error state. */
   error?: string | undefined;
   /** Positive confirmation below the input (e.g. "Passwords match"); green border. */
@@ -31,6 +33,7 @@ export type TextFieldProps = TextInputProps & {
 
 export function TextField({
   label,
+  labelAccessory,
   error,
   success,
   hint,
@@ -56,11 +59,19 @@ export function TextField({
 
   return (
     <View className={cn('gap-1.5', containerClassName)}>
-      {label && (
-        <Text variant="caption" weight="medium" tone="label">
-          {label}
-        </Text>
-      )}
+      {label &&
+        (labelAccessory ? (
+          <View className="flex-row items-center justify-between gap-sm">
+            <Text variant="caption" weight="medium" tone="label">
+              {label}
+            </Text>
+            {labelAccessory}
+          </View>
+        ) : (
+          <Text variant="caption" weight="medium" tone="label">
+            {label}
+          </Text>
+        ))}
 
       <View
         className={cn(

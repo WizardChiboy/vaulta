@@ -168,23 +168,13 @@ export default function InsightsScreen() {
           icon={Archive}
           title="Monthly budget"
           subtitle={`${formatWholeCurrency(Math.max(budget.budget - budget.spent, 0))} left · ${budget.daysLeft} days to go`}
-          onPress={() =>
-            showMessage(
-              'Monthly budget',
-              'This is a demo — this screen is coming in a later module.'
-            )
-          }
+          onPress={() => router.push('/insights/budget')}
         />
         <InsightLink
           icon={FileText}
           title={`${report.month} report`}
           subtitle={`You saved ${Math.round(report.savedShareOfIncome * 100)}% of income`}
-          onPress={() =>
-            showMessage(
-              `${report.month} report`,
-              'This is a demo — this screen is coming in a later module.'
-            )
-          }
+          onPress={() => router.push('/insights/report')}
           last
         />
       </Card>

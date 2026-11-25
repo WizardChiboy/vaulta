@@ -14,6 +14,7 @@ import {
   type LucideIcon,
 } from '@/constants/icons';
 import { cn } from '@/lib/cn';
+import { usePreferences } from '@/store/preferences';
 import type { Transaction, TransactionCategory } from '@/types/transaction';
 import { formatRelativeTime, formatSignedCurrency } from '@/utils/format';
 
@@ -55,6 +56,9 @@ export function TransactionRow({
   className,
 }: TransactionRowProps) {
   const { colors } = useTheme();
+  // Appearance (39): "Compact transaction list" fits more rows on screen.
+  const { preferences } = usePreferences();
+  const compact = preferences.compactTransactions;
   const incoming = transaction.amount > 0;
   const Icon = transactionIcons[transactionIconKey(transaction)];
   const amount = formatSignedCurrency(transaction.amount);
@@ -66,15 +70,24 @@ export function TransactionRow({
       accessibilityRole="button"
       accessibilityLabel={`${transaction.title}, ${subtitle}, ${amount}`}
       onPress={onPress}
-      className={cn('flex-row items-center gap-md px-lg py-2.5 active:bg-surface-hover', className)}
+      className={cn(
+        'flex-row items-center gap-md px-lg active:bg-surface-hover',
+        compact ? 'py-1.5' : 'py-2.5',
+        className
+      )}
     >
       <View
         className={cn(
-          'h-10 w-10 items-center justify-center rounded-md',
+          'items-center justify-center rounded-md',
+          compact ? 'h-8 w-8' : 'h-10 w-10',
           incoming ? 'bg-accent-soft' : 'bg-surface-muted'
         )}
       >
-        <Icon size={20} color={incoming ? colors.accent : colors.label} strokeWidth={ICON_STROKE} />
+        <Icon
+          size={compact ? 16 : 20}
+          color={incoming ? colors.accent : colors.label}
+          strokeWidth={ICON_STROKE}
+        />
       </View>
       <View className="flex-1">
         <Text variant="body" weight="medium" numberOfLines={1}>

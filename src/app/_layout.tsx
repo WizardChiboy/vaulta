@@ -12,6 +12,7 @@ import { Manrope_600SemiBold } from '@expo-google-fonts/manrope/600SemiBold';
 import { Manrope_700Bold } from '@expo-google-fonts/manrope/700Bold';
 
 import { ThemeProvider, useTheme } from '@/components/layout/ThemeProvider';
+import { PreferencesProvider, usePreferences } from '@/store/preferences';
 import { SessionProvider, useSession } from '@/store/session';
 
 // Fire-and-forget: rejects harmlessly if the splash is already hidden (e.g. after fast refresh).
@@ -35,12 +36,23 @@ export default function RootLayout() {
   return (
     // KeyboardProvider powers <Screen>'s keyboard handling (react-native-keyboard-controller).
     <KeyboardProvider>
-      <ThemeProvider theme="light">
-        <SessionProvider>
-          <RootNavigator />
-        </SessionProvider>
-      </ThemeProvider>
+      <PreferencesProvider>
+        <ThemedApp />
+      </PreferencesProvider>
     </KeyboardProvider>
+  );
+}
+
+/** Light, dark or the device setting, chosen on Appearance (39). */
+function ThemedApp() {
+  const { resolvedTheme } = usePreferences();
+
+  return (
+    <ThemeProvider theme={resolvedTheme}>
+      <SessionProvider>
+        <RootNavigator />
+      </SessionProvider>
+    </ThemeProvider>
   );
 }
 
@@ -52,6 +64,7 @@ export default function RootLayout() {
 function RootNavigator() {
   const { name, colors } = useTheme();
   const { user } = useSession();
+  const { preferences } = usePreferences();
 
   return (
     <>
@@ -60,6 +73,7 @@ function RootNavigator() {
         screenOptions={{
           headerShown: false,
           contentStyle: { backgroundColor: colors.background },
+          animation: preferences.reduceMotion ? 'fade' : 'default',
         }}
       >
         <Stack.Protected guard={!!user} redirectTo="/welcome">

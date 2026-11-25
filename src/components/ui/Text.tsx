@@ -1,6 +1,8 @@
 import { Text as RNText, type TextProps as RNTextProps } from 'react-native';
 
+import { typeScale } from '@/constants/theme';
 import { cn } from '@/lib/cn';
+import { usePreferences } from '@/store/preferences';
 
 const variantClasses = {
   display: 'text-display',
@@ -67,13 +69,37 @@ export type TextProps = RNTextProps & {
   className?: string | undefined;
 };
 
+/** Type-scale token for each variant. */
+const variantScale = {
+  display: 'display',
+  h1: 'h1',
+  h2: 'h2',
+  h3: 'h3',
+  bodyLg: 'body-lg',
+  body: 'body',
+  bodySm: 'body-sm',
+  caption: 'caption',
+  small: 'small',
+  xs: 'xs',
+  overline: 'overline',
+} as const satisfies Record<TextVariant, keyof typeof typeScale>;
+
 export function Text({
   variant = 'body',
   weight,
   tone = 'default',
   className,
+  style,
   ...props
 }: TextProps) {
+  // Text size from Appearance (39). Explicit font sizes in `style` still win.
+  const { textScale } = usePreferences();
+  const [fontSize, lineHeight] = typeScale[variantScale[variant]];
+  const scaled =
+    textScale === 1 || fontSize === undefined || lineHeight === undefined
+      ? undefined
+      : { fontSize: fontSize * textScale, lineHeight: Math.round(lineHeight * textScale) };
+
   return (
     <RNText
       className={cn(
@@ -82,6 +108,7 @@ export function Text({
         toneClasses[tone],
         className
       )}
+      style={scaled ? [scaled, style] : style}
       {...props}
     />
   );

@@ -7,6 +7,7 @@ export * from './CopyButton';
 export * from './IconButton';
 export * from './IconTile';
 export * from './KeyValueList';
+export * from './ListRow';
 export * from './Loader';
 export * from './Logo';
 export * from './ProgressBar';

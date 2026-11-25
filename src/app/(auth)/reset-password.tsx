@@ -13,11 +13,13 @@ import { simulateRequest } from '@/lib/mock';
 import { showMessage } from '@/lib/notify';
 import { resetPasswordSchema, type ResetPasswordForm } from '@/lib/schemas/auth';
 import { cn } from '@/lib/cn';
+import { useSession } from '@/store/session';
 import { getPasswordRequirements } from '@/utils/password';
 
 // Design 06 — Create a new password.
 export default function ResetPasswordScreen() {
   const { colors } = useTheme();
+  const { user } = useSession();
   const {
     control,
     handleSubmit,
@@ -32,6 +34,12 @@ export default function ResetPasswordScreen() {
 
   const onSubmit = handleSubmit(async () => {
     await simulateRequest(null);
+    // Opened from Security (37) while signed in: go back there instead of to sign-in.
+    if (user) {
+      showMessage('Password updated', 'Use your new password next time you sign in.');
+      router.back();
+      return;
+    }
     showMessage('Password updated', 'Sign in with your new password.');
     router.dismissTo('/sign-in');
   });

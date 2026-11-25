@@ -49,3 +49,33 @@ export type SpendingCategory = {
   /** Largest payments this month. */
   payments: CategoryPayment[];
 };
+
+/** A category's monthly budget on Monthly budget (design 32). */
+export type CategoryBudget = {
+  categoryId: SpendingCategoryId;
+  /** Naira. */
+  limit: number;
+};
+
+/** Last month's summary on Monthly report (design 33). */
+export type MonthlyReport = {
+  /** "September" */
+  month: string;
+  /** Short name of the month before, for the change lines, e.g. "Aug". */
+  previousMonth: string;
+  /** "1 – 30 Sep 2026" */
+  rangeLabel: string;
+  /** Naira. */
+  income: number;
+  previousIncome: number;
+  expenses: number;
+  previousExpenses: number;
+  /** Naira moved into savings goals. */
+  saved: number;
+  goalCount: number;
+  /** Savings rate target, 0–1. */
+  savingsTarget: number;
+  biggestPayment: { label: string; amount: number };
+  topCategory: { name: string; amount: number };
+  underBudget: { count: number; of: number };
+};

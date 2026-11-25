@@ -3,7 +3,7 @@ import { Tabs } from 'expo-router/js-tabs';
 import { TabBar } from '@/components/layout/TabBar';
 import { useTheme } from '@/components/layout/ThemeProvider';
 
-/** Home · Transfer · Savings · Profile. Home (08), Transfer (16) and Savings (26) are built; TabBar shows all four. */
+/** Home (08) · Transfer (16) · Savings (26) · Profile (34). */
 export default function TabsLayout() {
   const { colors } = useTheme();
 
@@ -15,6 +15,7 @@ export default function TabsLayout() {
       <Tabs.Screen name="index" options={{ title: 'Home' }} />
       <Tabs.Screen name="transfer" options={{ title: 'Transfer' }} />
       <Tabs.Screen name="savings" options={{ title: 'Savings' }} />
+      <Tabs.Screen name="profile" options={{ title: 'Profile' }} />
     </Tabs>
   );
 }

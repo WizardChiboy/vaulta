@@ -6,6 +6,7 @@ import { Text } from '@/components/ui/Text';
 import { ArrowDownLeft, Check, Copy, Eye, EyeOff, ICON_STROKE } from '@/constants/icons';
 import { palette } from '@/constants/theme';
 import { cn } from '@/lib/cn';
+import { usePreferences } from '@/store/preferences';
 import { formatCurrencyParts, formatWholeCurrency } from '@/utils/format';
 
 const HIDDEN = '₦••••••';
@@ -33,7 +34,9 @@ export function BalanceCard({
   className,
 }: BalanceCardProps) {
   const { colors } = useTheme();
-  const [hidden, setHidden] = useState(false);
+  // Security (37) / Appearance (39): start hidden when "Show balance on Home" is off.
+  const { preferences } = usePreferences();
+  const [hidden, setHidden] = useState(!preferences.showBalance);
   const [copied, setCopied] = useState(false);
   const copiedTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
   const amount = formatCurrencyParts(balance);

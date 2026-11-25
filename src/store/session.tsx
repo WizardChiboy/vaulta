@@ -24,8 +24,12 @@ type SessionContextValue = {
   startSignUp: (details: SignUpDetails) => Promise<void>;
   /** Called after the phone is verified; creates the (mock) account. */
   completeSignUp: () => Promise<void>;
+  /** Edit profile (35): saves the editable fields. */
+  updateProfile: (changes: ProfileChanges) => Promise<void>;
   signOut: () => void;
 };
+
+export type ProfileChanges = Pick<User, 'fullName' | 'displayName' | 'email'>;
 
 const SessionContext = createContext<SessionContextValue | null>(null);
 
@@ -56,11 +60,16 @@ export function SessionProvider({ children }: { children: ReactNode }) {
     setPendingSignUp(null);
   }, [pendingSignUp]);
 
+  const updateProfile = useCallback(async (changes: ProfileChanges) => {
+    await simulateRequest(null);
+    setUser((current) => (current ? { ...current, ...changes } : current));
+  }, []);
+
   const signOut = useCallback(() => setUser(null), []);
 
   const value = useMemo(
-    () => ({ user, pendingSignUp, signIn, startSignUp, completeSignUp, signOut }),
-    [user, pendingSignUp, signIn, startSignUp, completeSignUp, signOut]
+    () => ({ user, pendingSignUp, signIn, startSignUp, completeSignUp, updateProfile, signOut }),
+    [user, pendingSignUp, signIn, startSignUp, completeSignUp, updateProfile, signOut]
   );
 
   return <SessionContext.Provider value={value}>{children}</SessionContext.Provider>;

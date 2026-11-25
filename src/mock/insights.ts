@@ -1,5 +1,7 @@
 import type {
   CashflowSeries,
+  CategoryBudget,
+  MonthlyReport,
   CategoryPayment,
   InsightsPeriod,
   SpendingCategory,
@@ -152,4 +154,34 @@ export const insightsLinks = {
     month: 'September',
     savedShareOfIncome: 0.24,
   },
+};
+
+/**
+ * Category budgets for October in the order of the design (32). They add up to the
+ * ₦600,000 monthly budget on Home (08).
+ */
+export const categoryBudgets: CategoryBudget[] = [
+  { categoryId: 'groceries', limit: 150000 },
+  { categoryId: 'food', limit: 80000 },
+  { categoryId: 'shopping', limit: 120000 },
+  { categoryId: 'bills', limit: 90000 },
+  { categoryId: 'transport', limit: 80000 },
+  { categoryId: 'entertainment', limit: 80000 },
+];
+
+/** September in review (33). Income and expenses match the Sep and Aug bars on Insights (30). */
+export const septemberReport: MonthlyReport = {
+  month: insightsLinks.report.month,
+  previousMonth: 'Aug',
+  rangeLabel: '1 – 30 Sep 2026',
+  income: 900000,
+  previousIncome: 885000,
+  expenses: 527900,
+  previousExpenses: 470000,
+  saved: 216000,
+  goalCount: 3,
+  savingsTarget: 0.2,
+  biggestPayment: { label: 'rent contribution', amount: 150000 },
+  topCategory: { name: 'Groceries', amount: 121300 },
+  underBudget: { count: 4, of: 6 },
 };

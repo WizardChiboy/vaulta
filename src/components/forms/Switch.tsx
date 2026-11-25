@@ -3,6 +3,7 @@ import { Animated, Platform, Pressable } from 'react-native';
 
 import { palette } from '@/constants/theme';
 import { cn } from '@/lib/cn';
+import { usePreferences } from '@/store/preferences';
 
 /** Knob travel: 48px track − 22px knob − 2 × 3px inset. */
 const TRAVEL = 20;
@@ -32,6 +33,7 @@ export function Switch({
   disabled = false,
   className,
 }: SwitchProps) {
+  const { preferences } = usePreferences();
   // Created once (lazy state initialiser); 0 = off, 1 = on.
   const [position] = useState(() => new Animated.Value(value ? 1 : 0));
   const [translateX] = useState(() =>
@@ -41,10 +43,10 @@ export function Switch({
   useEffect(() => {
     Animated.timing(position, {
       toValue: value ? 1 : 0,
-      duration: 160,
+      duration: preferences.reduceMotion ? 0 : 160,
       useNativeDriver: Platform.OS !== 'web',
     }).start();
-  }, [position, value]);
+  }, [position, value, preferences.reduceMotion]);
 
   return (
     <Pressable
